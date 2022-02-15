@@ -18,22 +18,21 @@
  */
 // export const sortStrings = (toSort= [], sortType='oldest') => {};
 
-
 export const sortStrings = (toSort = [], sortType = 'oldest') => {
-    let c;
-    return (
-      (c =
-        'newest' === sortType
-          ? [...toSort].reverse()
-          : 'a' === sortType
-          ? [...toSort].sort()
-          : 'z' === sortType
-          ? [...toSort].sort().reverse()
-          : 'shortest' === sortType
-          ? [...toSort].sort((c, toSort) => c.length - toSort.length)
-          : 'longest' === sortType
-          ? [...toSort].sort((c, toSort) => c.length - toSort.length).reverse()
-          : [...toSort]),
-      c
-    );
-  };
+  let c;
+  return (
+    (c =
+      'newest' === sortType
+        ? [...toSort].reverse()
+        : 'a' === sortType
+        ? [...toSort].sort()
+        : 'z' === sortType
+        ? [...toSort].sort().reverse()
+        : 'shortest' === sortType
+        ? [...toSort].sort((c, toSort) => c.length - toSort.length)
+        : 'longest' === sortType
+        ? [...toSort].sort((c, toSort) => c.length - toSort.length).reverse()
+        : [...toSort]),
+    c
+  );
+};
