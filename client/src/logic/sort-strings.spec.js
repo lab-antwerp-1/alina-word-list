@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { sortStrings } from './sort-strings.js';
+// import { sortStrings } from './sort-strings.js';
 
 describe('sorts the strings in an array in different ways', () => {
   describe('oldest to newest', () => {
