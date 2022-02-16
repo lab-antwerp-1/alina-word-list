@@ -45,14 +45,14 @@ export const inputWord = (event) => {
   if (action === 'add') {
     // ... write some code ...
     if (!isWord(text)) {
-      void (warnings.innerText = `"${text}" is not a word`);
+      warnings.innerText = `"${text}" is not a word`;
       return;
     }
     data.words.push(text);
   } else if (action === 'remove') {
     // ... write some code ...
     if (!data.words.includes(text)) {
-      void (warnings.innerText = `"${text}" is not in the list`);
+      warnings.innerText = `"${text}" is not in the list`;
       return;
     }
     data.words.splice(data.words.indexOf(text), 1);
