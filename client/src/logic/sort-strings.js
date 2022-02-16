@@ -19,17 +19,17 @@
  * sortStrings = (["ab", "abc", "hello"], sortType = 'longest') -> ["hello", "abc","ab"]
  */
 export const sortStrings = (toSort = [], sortType = 'oldest') => {
-return sortType === 'newest'
-      ? [...toSort].reverse()
-      : sortType === 'a'
-      ? [...toSort].sort()
-      : sortType === 'z'
-      ? [...toSort].sort().reverse()
-      : sortType === 'shortest'
-      ? [...toSort].sort((e, eNext) => e.length - eNext.length)
-      : sortType === 'longest'
-      ? [...toSort]
-          .sort((ele, toBeSort) => ele.length - toBeSort.length)
-          .reverse()
-      : [...toSort];
+  return sortType === 'newest'
+    ? [...toSort].reverse()
+    : sortType === 'a'
+    ? [...toSort].sort()
+    : sortType === 'z'
+    ? [...toSort].sort().reverse()
+    : sortType === 'shortest'
+    ? [...toSort].sort((e, eNext) => e.length - eNext.length)
+    : sortType === 'longest'
+    ? [...toSort]
+        .sort((ele, toBeSort) => ele.length - toBeSort.length)
+        .reverse()
+    : [...toSort];
 };
