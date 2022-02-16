@@ -2,8 +2,8 @@
  * Sorts an array of strings in different ways.
  * It does not modify the argument (no side-effects).
  *
- * @param {array[]} [toSort = []] - The array of strings to sort.
- * @param {string} [sortType = 'oldest'] - How to sort the strings, 6 options.
+ * @param {Array[]} [toSort = []] - The array of strings to sort.
+ * @param {String} [sortType = 'oldest'] - How to sort the strings, 6 options.
  * - oldest: from oldest to newest.
  * - newest: from newest to oldest.
  * - shortest: from shortest to longest.
@@ -11,28 +11,28 @@
  * - a: alphabetical order.
  * - z: reverse alphabetical order.
  * If the sortType is not one of these 6 options, a copy of toSort is returned.
- * @returns {array[]} A new sorted array containing the same strings as toSort.
+ * @returns {Array[]} A new sorted array containing the same strings as toSort.
  * @example
  *
  * // ... write this!
- * sortStrings = (["ab", "abc", "bcde"], sortType = 'oldest') -> ["ab", "abc", "bcde"]
- * sortStrings = (["ab", "abc", "bcde"], sortType = 'longest') -> ["bcde", "abc","ab"]
+ * sortStrings = (["ab", "abc", "hello"], sortType = 'oldest') -> ["ab", "abc", "hello"]
+ * sortStrings = (["ab", "abc", "hello"], sortType = 'longest') -> ["hello", "abc","ab"]
  */
 export const sortStrings = (toSort = [], sortType = 'oldest') => {
   let c;
-  return (
-    (c =
-      'newest' === sortType
-        ? [...toSort].reverse()
-        : 'a' === sortType
-        ? [...toSort].sort()
-        : 'z' === sortType
-        ? [...toSort].sort().reverse()
-        : 'shortest' === sortType
-        ? [...toSort].sort((c, toSort) => c.length - toSort.length)
-        : 'longest' === sortType
-        ? [...toSort].sort((c, toSort) => c.length - toSort.length).reverse()
-        : [...toSort]),
-    c
-  );
+  c =
+    sortType === 'newest'
+      ? [...toSort].reverse()
+      : sortType === 'a'
+      ? [...toSort].sort()
+      : sortType === 'z'
+      ? [...toSort].sort().reverse()
+      : sortType === 'shortest'
+      ? [...toSort].sort((c, toSort) => c.length - toSort.length)
+      : sortType === 'longest'
+      ? [...toSort]
+          .sort((ele, toBeSort) => ele.length - toBeSort.length)
+          .reverse()
+      : [...toSort];
+  return c;
 };

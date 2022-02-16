@@ -8,8 +8,7 @@ import { renderList } from '../components/render-list.js';
  * It is called each time the user clicks the "add word" button.
  *
  * @param {Event} event - The event triggered when the user clicks the button.
- *
- * @returns {DOM element} ul - a component, ul, of the user interface.
+ * @returns {Element} ul - A component, ul, of the user interface.
  */
 export const inputWord = (event) => {
   /* -- entry point for adding or removing a word -- */
@@ -46,16 +45,19 @@ export const inputWord = (event) => {
 
   if (action === 'add') {
     // ... write some code ...
-    if (!isWord(text))
+    if (!isWord(text)) {
       return void (warnings.innerText = `"${text}" is not a word`);
-    data.words.push(text);
+    } else {
+      data.words.push(text);
+    }
   } else if (action === 'remove') {
     // ... write some code ...
-    if (!data.words.includes(text))
+    if (!data.words.includes(text)) {
       return void (warnings.innerText = `"${text}" is not in the list`);
-    data.words.splice(data.words.indexOf(text), 1);
+    } else {
+      data.words.splice(data.words.indexOf(text), 1);
+    }
   }
-
   /* -- render new words -- */
   const sorted = sortStrings(data.words, data.sort);
   const newList = renderList(sorted);

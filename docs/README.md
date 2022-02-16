@@ -184,8 +184,8 @@ It does not modify the argument (no side-effects).
 ```js
 // ... write this!
 /**
- *sortStrings = (["ab", "abc", "bcde"], sortType = 'oldest') -> ["ab", "abc", "bcde"]  
- * sortStrings = (["ab", "abc", "bcde"], sortType = 'longest') -> ["bcde", "abc","ab"]
+ *sortStrings = (["ab", "abc", "hello"], sortType = 'oldest') -> ["ab", "abc", "hello"]  
+ * sortStrings = (["ab", "abc", "hello"], sortType = 'longest') -> ["hello", "abc","ab"]
  */
 ```
 
