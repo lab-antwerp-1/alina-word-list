@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Sorts an array of strings in different ways.
  * It does not modify the argument (no side-effects).

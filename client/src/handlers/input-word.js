@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { data } from '../../data.js';
 import { isWord } from '../logic/is-word.js';
 import { sortStrings } from '../logic/sort-strings.js';
