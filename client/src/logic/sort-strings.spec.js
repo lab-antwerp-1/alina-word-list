@@ -1,5 +1,8 @@
 /* eslint-disable */
-// import { sortStrings } from './sort-strings.js';
+import { sortStrings } from './sort-strings.js';
+
+xdescribe('All tests in this describe will be skipped', () => {
+
 
 describe('sorts the strings in an array in different ways', () => {
   describe('oldest to newest', () => {
@@ -126,4 +129,7 @@ describe('sorts the strings in an array in different ways', () => {
       expect(strings).toEqual(['a', 'b', 'c']);
     });
   });
+});
+
+
 });
