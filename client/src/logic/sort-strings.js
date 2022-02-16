@@ -3,7 +3,7 @@
  * It does not modify the argument (no side-effects).
  *
  * @param {Array[]} [toSort = []] - The array of strings to sort.
- * @param {String} [sortType = 'oldest'] - How to sort the strings, 6 options.
+ * @param {string} [sortType = 'oldest'] - How to sort the strings, 6 options.
  * - oldest: from oldest to newest.
  * - newest: from newest to oldest.
  * - shortest: from shortest to longest.
@@ -19,8 +19,7 @@
  * sortStrings = (["ab", "abc", "hello"], sortType = 'longest') -> ["hello", "abc","ab"]
  */
 export const sortStrings = (toSort = [], sortType = 'oldest') => {
-  let c;
-  c =
+  const c =
     sortType === 'newest'
       ? [...toSort].reverse()
       : sortType === 'a'
@@ -28,7 +27,7 @@ export const sortStrings = (toSort = [], sortType = 'oldest') => {
       : sortType === 'z'
       ? [...toSort].sort().reverse()
       : sortType === 'shortest'
-      ? [...toSort].sort((c, toSort) => c.length - toSort.length)
+      ? [...toSort].sort((e, eNext) => e.length - eNext.length)
       : sortType === 'longest'
       ? [...toSort]
           .sort((ele, toBeSort) => ele.length - toBeSort.length)
