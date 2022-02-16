@@ -7,7 +7,7 @@ import { renderList } from '../components/render-list.js';
  * It is called each time the input selection changes.
  *
  * @param {Event} event - The event triggered by changing the input.
- * 
+ *
  * @returns {DOM element} ul - a component, ul, of the user interface.
  */
 export const sortWords = (event) => {

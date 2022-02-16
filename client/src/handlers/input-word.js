@@ -8,7 +8,7 @@ import { renderList } from '../components/render-list.js';
  * It is called each time the user clicks the "add word" button.
  *
  * @param {Event} event - The event triggered when the user clicks the button.
- * 
+ *
  * @returns {DOM element} ul - a component, ul, of the user interface.
  */
 export const inputWord = (event) => {

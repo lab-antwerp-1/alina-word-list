@@ -15,7 +15,7 @@
  * @example
  *
  * // ... write this!
- * sortStrings = (["ab", "abc", "bcde"], sortType = 'oldest') -> ["ab", "abc", "bcde"]  
+ * sortStrings = (["ab", "abc", "bcde"], sortType = 'oldest') -> ["ab", "abc", "bcde"]
  * sortStrings = (["ab", "abc", "bcde"], sortType = 'longest') -> ["bcde", "abc","ab"]
  */
 export const sortStrings = (toSort = [], sortType = 'oldest') => {
