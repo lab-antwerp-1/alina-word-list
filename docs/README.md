@@ -106,6 +106,11 @@ It is called each time the input selection changes.
 
 </details>
 
+- it `import` from:
+  - _listeners_
+  - _data_
+  - _components_
+
 ---
 
 ## /listeners
@@ -148,6 +153,12 @@ Checks if a string is a word. A word contains only letters.
 
 ```js
 // ... write this!
+/**
+ * isWord("spell-check") -> false
+ * isWord("spell?") -> false
+ * isWord("spell9") -> false
+ * isWord("spell") -> true
+ */
 ```
 
 </details>
@@ -172,6 +183,10 @@ It does not modify the argument (no side-effects).
 
 ```js
 // ... write this!
+/**
+ *sortStrings = (["ab", "abc", "bcde"], sortType = 'oldest') -> ["ab", "abc", "bcde"]  
+ * sortStrings = (["ab", "abc", "bcde"], sortType = 'longest') -> ["bcde", "abc","ab"]
+ */
 ```
 
 </details>
