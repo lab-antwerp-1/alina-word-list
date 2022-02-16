@@ -6,5 +6,9 @@
  * @example
  *
  * // ... write this!
+ * isWord("spell-check") -> false
+ * isWord("spell?") -> false
+ * isWord("spell9") -> false
+ * isWord("spell") -> true
  */
 export const isWord = (text = '') => /^[a-zA-Z]+$/.test(text);
