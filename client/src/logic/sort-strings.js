@@ -19,8 +19,7 @@
  * sortStrings = (["ab", "abc", "hello"], sortType = 'longest') -> ["hello", "abc","ab"]
  */
 export const sortStrings = (toSort = [], sortType = 'oldest') => {
-  const c =
-    sortType === 'newest'
+return sortType === 'newest'
       ? [...toSort].reverse()
       : sortType === 'a'
       ? [...toSort].sort()
@@ -33,5 +32,4 @@ export const sortStrings = (toSort = [], sortType = 'oldest') => {
           .sort((ele, toBeSort) => ele.length - toBeSort.length)
           .reverse()
       : [...toSort];
-  return c;
 };
