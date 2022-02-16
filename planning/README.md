@@ -1,5 +1,7 @@
 # README
 
+This is an individual project to practice working on a full HTML/CSS/JS website. The project is to build an app in witch user can add words to a list and sort the list with 6 options.
+
 ## Constraints
 
 Constraints help to scoping this project and clear about what it isn't.

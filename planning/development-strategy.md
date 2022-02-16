@@ -1,20 +1,5 @@
-<!--
-
-  There will be different types of tasks for each user story:
-    `type: init`
-    `type: listeners`
-    `type: handlers`
-    `type: logic`
-    `type: components`
-    `type: data`
-    `type: css`
-    
-   
-    ...
-
--->
-# Word List
-This is an individual project to practice working on a full HTML/CSS/JS website.
+# Word List - development strategy
+This is an individual project to practice working on a full HTML/CSS/JS website. The project is to build an app in witch user can add words to a list and sort the list with 6 options.
 
 ## Setup
 
@@ -23,6 +8,8 @@ This is an individual project to practice working on a full HTML/CSS/JS website.
   - loading program data
   - rendering the initial user interface
 -->
+
+-[]`type:html`: There is a title of this app.
 
 -[]`type: init`: 
 
@@ -44,10 +31,6 @@ This is an individual project to practice working on a full HTML/CSS/JS website.
 
   -[]`export` object `data`.
 
--[]`type: listeners`: Add listener `addEventListener('click', inputWord)` to `form` element with the id `input-form` in /listeners.
-
--[]`type: listeners`: Add listener `addEventListener('change', sortWords)` to `select` element with the id `sort-type` in /listeners.
-
 ## Word list
 
 > "As a user I want a word list so that I can see the words I've added."
@@ -57,19 +40,13 @@ This is an individual project to practice working on a full HTML/CSS/JS website.
 
 -[]`type: components`: Write a function `renderList(toRender = [])` in /components. Convert each word element from an array to text in each `li`tag , and an `ul`tag wrap around all the `li`. `export` function.
 
-
-
-
-
-
 ### Interface: Word list
 
 -[]`type html`: A `div` with the id `list-container` to store rendered word list.
 
 ### Interaction: Word list
+
 -[]When the app just loaded, the word list is blank.
-
-
 
 ## Add word
 
@@ -77,6 +54,8 @@ This is an individual project to practice working on a full HTML/CSS/JS website.
   > - Given the input contains only letters it will be added to the words list, and the list will be re-rendered.
 
 ### Logic: Add word
+
+-[]`type: listeners`: Add listener `addEventListener('click', inputWord)` to `form` element with the id `input-form` in /listeners.
 
 -[]`type: handlers`: Write a function `inputWord(event)` in/handlers. It's an entry point for adding or removing a word. It is called each time the user clicks the "add word" or the "remove word" button. It gathers user input from DOM and then render new words by calling function `sortStrings(data.words, data.sort)` and `renderList(sorted)` to a `div` with the id `listContainer`. `export` function.
 
@@ -99,21 +78,14 @@ This is an individual project to practice working on a full HTML/CSS/JS website.
 
 -[]Given the input contains only letters it will be added to the words list, and the list will be re-rendered.
 
-
 ## Remove word
 
 > "As a user I want a remove button so that I can remove the word I don't like or want from the list."
   > - Give a word and click remove button then the word removes from the list.
 
 ### Logic: Remove word
-<!-- same as Add word -->
--[]`type: handlers`: Write a function `inputWord(event)` in/handlers. It's an entry point for adding or removing a word. It is called each time the user clicks the "add word" or the "remove word" button. It gathers user input from DOM and then render new words by calling function `sortStrings(data.words, data.sort)` and `renderList(sorted)` to a `div` with the id `listContainer`. `export` function.
 
--[]`type: logic`: Write a function `sortStrings(toSort = [], sortType = 'oldest')` in /logic. It will sort words depend on sort type option. `export` function.
-
--[]`type: logic`: Write a function `isWord(text = '')` in /logic to check if the user input is a word. `export` function.
-
--[]`type: components`: Write a function `renderList(toRender = [])` in render-list.js. Convert each word element from an array to text in each `li`tag , and an `ul`tag wrap around all the `li`. `export` function.
+-[]Same as Add word. 
 
 ### Interface: Remove word
 
@@ -169,6 +141,8 @@ This is an individual project to practice working on a full HTML/CSS/JS website.
   > - Select 'z' then will reverse alphabetical order.
 
 ### Logic: Sort words with options
+
+-[]`type: listeners`: Add listener `addEventListener('change', sortWords)` to `select` element with the id `sort-type` in /listeners.
 
 -[]`type: handlers`: Write a function `sortWords(event)` in /handlers. Entry point for users sorting the list of words in this app. It is called each time the input selection changes. It will read and process user input and render new words. Make a newly sorted list named `sorted` by calling function `sortStrings(data.words, data.sort)` and then pass it in `renderList(sorted)`, then use `.appendChild()` append the `ul` element to a `div` with the id `listContainer`. `export` function.
 
