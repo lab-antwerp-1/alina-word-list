@@ -2,7 +2,7 @@
 
 ## renderList
 
-``renderList`` is a function that return a component of the user interface. In this project it returns a DOM element, `ul`.
+`renderList` is a function that return a component of the user interface. In this project it returns a DOM element, `ul`.
 
 - it `import` from:
   - _components_

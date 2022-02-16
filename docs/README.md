@@ -65,6 +65,13 @@
 
 <a name="inputWord"></a>
 
+- it `import` from:
+  - _data_
+  - _logic_
+  - _components_
+- it `export` to:
+  - _listeners_
+
 ## inputWord
 
 Entry point for users adding a word to the list.
@@ -111,6 +118,11 @@ It is called each time the input selection changes.
 
 </details>
 
+- it `import` from:
+  - _handlers_
+- it `export` to:
+  - _init_
+
 ---
 
 ## /logic
@@ -118,6 +130,9 @@ It is called each time the input selection changes.
 <details><summary><a href="../../client/src/logic/is-word.js" id="clientsrclogicis-wordjs">../client/src/logic/is-word.js</a></summary>
 
 <a name="isWord"></a>
+ 
+- it `export` to:
+  - _handlers_
 
 ## isWord ⇒ <code>boolean</code>
 
