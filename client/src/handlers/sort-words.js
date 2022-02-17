@@ -23,7 +23,7 @@ export const sortWords = (event) => {
   */
 
   // ... write some code ...
-  
+
   /* -- render new words -- */
   const newList = renderList(sorted);
 

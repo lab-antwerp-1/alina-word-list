@@ -17,6 +17,4 @@
  *
  * // ... write this!
  */
-export const sortStrings = (toSort= [], sortType='oldest') => {};
-
-
+export const sortStrings = (toSort = [], sortType = 'oldest') => {};
