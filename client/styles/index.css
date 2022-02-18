@@ -6,7 +6,7 @@
 :root {
   --header-font: 'Roboto+Serif', serif;
   --paragraph-font: 'Noto+Sans', serif;
-  --list-font: Cursive, sans-serif;
+  --list-font: cursive, sans-serif;
   --blue-light: rgba(241, 244, 249, 1);
   --blue-medium: rgba(126, 155, 200, 1);
   --blue-dark: rgba(37, 56, 86, 1);
@@ -31,7 +31,7 @@ body {
   width: 70%;
 }
 
-/* section1: instruction*/
+/* section1: instruction */
 .instruction {
   position: inherit;
   padding: 25px;
@@ -90,7 +90,7 @@ body {
   border-color: var(--purple-medium);
 }
 
-.button:click {
+.button:active {
   border-color: var(--red-medium);
 }
 

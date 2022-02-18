@@ -130,12 +130,12 @@ describe('sorts the strings in an array in different ways', () => {
       expect(sortStrings([], 'a')).toEqual([]);
     });
     it('uppercase and lowercase', () => {
-      const expected = [ 'abc','ABC', 'bcd', 'BCD'];
+      const expected = ['abc','ABC', 'bcd', 'BCD'];
       expect(sortStrings(['abc', 'bcd', 'ABC', 'BCD'], 'a')).toEqual(expected);
     });
     it('mixed', () => {
       const expected = ['Bdc', 'bDC', 'Def', 'deF'];
-      expect(sortStrings(['Bdc', 'Def', 'bDC','deF'], 'a')).toEqual(expected);
+      expect(sortStrings(['Bdc', 'Def', 'bDC', 'deF'], 'a')).toEqual(expected);
     });
   });
   describe('perform case-insensitive reverse-alphabetical order sorting', () => {
@@ -143,12 +143,12 @@ describe('sorts the strings in an array in different ways', () => {
       expect(sortStrings([], 'z')).toEqual([]);
     });
     it('uppercase and lowercase', () => {
-      const expected =[ 'BCD', 'bcd', 'ABC', 'abc' ]
+      const expected =['BCD', 'bcd', 'ABC', 'abc' ]
       expect(sortStrings(['abc', 'bcd', 'ABC', 'BCD'], 'z')).toEqual(expected);
     });
     it('mixed', () => {
       const expected = ['deF', 'Def', 'bDC', 'Bdc'];
-      expect(sortStrings(['Bdc', 'Def', 'bDC','deF'], 'z')).toEqual(expected);
+      expect(sortStrings(['Bdc', 'Def', 'bDC', 'deF'], 'z')).toEqual(expected);
     });
   });
 });
