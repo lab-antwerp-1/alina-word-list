@@ -1,1 +1,122 @@
 @import url('./other-file.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;1,200&display=swap');
+
+/* setup colour schemes and font families for pages */
+:root {
+  --header-font: 'Roboto+Serif', serif;
+  --paragraph-font: 'Noto+Sans', serif;
+  --list-font: Cursive, sans-serif;
+  --blue-light: rgba(241, 244, 249, 1);
+  --blue-medium: rgba(126, 155, 200, 1);
+  --blue-dark: rgba(37, 56, 86, 1);
+  --purple-light: rgba(229, 229, 241, 1);
+  --purple-medium: rgba(90, 83, 162, 1);
+  --purple-dark: rgba(50, 50, 93, 1);
+  --red-light: rgba(242, 227, 227, 1);
+  --red-medium: rgba(197, 129, 129, 1);
+  --red-dark: rgba(126, 58, 58, 1);
+  --warning: rgba(204, 0, 61, 1);
+}
+
+body {
+  margin: 0;
+  word-spacing: 4px;
+  line-height: 1.8rem;
+}
+
+.center {
+  background-color: var(--blue-light);
+  margin: auto;
+  width: 70%; 
+}
+
+/* section1: instruction*/
+.instruction {
+  position: inherit;
+  padding: 25px;
+}
+
+.header {
+  font-family: var(--header-font);
+  font-size: 2.5em;
+  color: rgb(32, 31, 31);
+  text-align: center;
+}
+
+.info {
+  font-family: var(--paragraph-font);
+  font-size: 1.5em;
+}
+
+/* section2: input area and sort type */
+#sort-type {
+  font-family: var(--paragraph-font);
+  font-size: 1.5rem;
+}
+
+#warnings {
+  font-size: 1.3rem;
+  color: var(--warning);
+}
+
+.input-sort-type {
+  margin: auto;
+}
+
+#input-form {
+  margin: 20px 20px 20px 20px;
+}
+
+#input-form input {
+  font-family: var(--paragraph-font);
+  font-size: 1.5rem;
+}
+
+.label,
+.select {
+  font-family: var(--paragraph-font);
+  font-size: 1.5rem;
+}
+
+.button {
+  border: 2px;
+  border-style: solid;
+  border-color: var(--blue-medium);
+  border-radius: 6px;
+}
+
+.button:hover {
+  border-color: var(--purple-medium);
+}
+
+.button:click {
+  border-color: var(--red-medium);
+}
+
+.add {
+  color: var(--blue-dark);
+}
+
+.remove {
+  color: var(--red-dark);
+}
+
+/* section3: list container */
+.word-list {
+  min-height: 600px;
+}
+
+#list-container {
+  font-family: var(--list-font);
+  font-size: 1.5em;
+}
+
+.header.list-header {
+  font-family: var(--header-font);
+  font-size: 2em;
+}
+
+ul {
+  list-style-type: none;
+}
