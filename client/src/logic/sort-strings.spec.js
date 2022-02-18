@@ -143,7 +143,7 @@ describe('sorts the strings in an array in different ways', () => {
       expect(sortStrings([], 'z')).toEqual([]);
     });
     it('uppercase and lowercase', () => {
-      const expected = ['BCD', 'bcd', 'ABC', 'abc']
+      const expected = ['BCD', 'bcd', 'ABC', 'abc'];
       expect(sortStrings(['abc', 'bcd', 'ABC', 'BCD'], 'z')).toEqual(expected);
     });
     it('mixed', () => {
