@@ -9,7 +9,41 @@
     <link href="./client/styles/index.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- intro section start -->
+      <header>
+        <h1>Word mnemonic device</h1>
+        <p class="intro">
+          Hi, welcome. This app helps you remembering words. <br />
+          There are two word lists. You can add word, remove word, edit word,
+          sort word... <br />
+          Check the words from new words list and click remembered button, you
+          can move the words to remembered list. <br />
+          Check the words from remembered list and click overlooked button, you
+          will move the words back to new words list. Have fun!
+        </p>
+      </header>
+      <!-- intro section end -->
+      <!-- input section start -->
+      <form id="input-form">
+        <input name="text" placeholder="new word" id="input"/>
+        <input type="button" value="add" id="add"/>
+      </form>
+      <code id="warnings" class="warning"></code>
+      <!-- input section end -->
+      <!-- sort section start -->
+      <!-- sort section end -->
+      <!-- list container section start -->
+      <div class="list-container">
+        <h3>New List</h3>
+        <div class="new-list-container" id="new-list-container">
+        </div>
+        <h3>remembered List</h3>
+        <div class="remembered-list-container" id="remembered-list-container">
+        </div>
+      </div>
+      <!-- list container section end -->
+    </div>
 
     <script type="module" src="./client/src/init/index.js"></script>
   </body>
