@@ -1,6 +1,8 @@
-# Word List - development strategy version 2
+# Word Mnemonic Device  - development strategy version 2
 
-This is an individual project to practice working on a full HTML/CSS/JS website. The project is to build an app in which user can add word to a list or remove word from the list and sort word list.
+This is an individual project to practice working on a full HTML/CSS/JS website. 
+
+This app helps user remembering words. You can add word, remove word, edit word, sort word... Check the words from `New Words` list and click `remembered` button, you can move the words to remembered list. check the words from `Remembered Words` list and click `overlooked` button, you will move the words back to new words list. 
 
 ## planning documents
 
@@ -54,7 +56,7 @@ This is an individual project to practice working on a full HTML/CSS/JS website.
 #### HTML 
 - [ ] a form input field
 - [ ] a add button
-- [ ] a div with id `list-container` to display the word list
+- [ ] a div with id `new-list` to display the word list
 
 #### CSS  
 
@@ -80,7 +82,7 @@ warns the user what is wrong with their input
 
 #### Components 
 
-- [ ] none. I can reuse the list & item components from rendering the initial list
+- [ ] a component to render word list.
 
 - this will be developed on the branch `2-feature-add`.
 
@@ -115,7 +117,7 @@ warns the user what is wrong with their input
 
 #### Components  
 
-- [ ] none. I can reuse the list & item components from rendering the initial list
+- [ ] none. I can reuse the component from add a word to render word list.
 
 - this will be developed on the branch `3-feature-remove`.
 
@@ -152,13 +154,47 @@ warns the user what is wrong with their input
 
 #### Components 
 
-- [ ] none. I can reuse the list & item components from rendering the initial list
+- [ ] none. I can reuse the component from add a word to render word list.
 
 - this will be developed on the branch `4-feature-sort`.
 
 ## Should-Haves
 
 > these will complete the user experience, but are not necessary
+
+### plus-1. move words between new list and remembered list
+
+> a user can move words between `new list` and `remembered list`
+
+#### HTML  
+
+- [ ] one `div` element with the id `remembered-list` as container.
+- [ ] one `remembered` button aside new words list
+- [ ] one `overlooked` button aside remembered words list
+- [ ] one checkbox aside each word.
+
+#### CSS  
+
+- [ ] styling to position the two lists correctly on the screen
+
+#### Listeners 
+
+- [ ] a listener connected to the `checkbox`, I'll try a "click" event first
+
+#### Handlers 
+
+- [ ] one handler that move the word list and re-render the list in the UI
+
+#### Utils  
+
+- [ ] none.
+
+#### Components 
+
+- [ ] none. I can reuse the component from add a word to render word list.
+
+- this will be developed on the branch `plus-1-feature-move`.
+
 
 ### 5. edit a word
 
@@ -246,7 +282,7 @@ warns the user what is wrong with their input
 
 #### Components   
 
-- [ ] none. I can reuse the list & item components from rendering the initial list.
+- [ ] none. I can reuse the component from add a word to render word list.
 
 - this will be developed on the branch `7-feature-enter-key`.
 
