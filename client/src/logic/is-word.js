@@ -5,7 +5,7 @@
  * @returns {boolean} Whether or not the text is a word.
  * @example
  *
- * isWord('abc') -> true
+ * isWord('hello') -> true
  * isWord('1ab') -> false
  * isWord('spell-check') -> false
  */

@@ -46,9 +46,9 @@ export const inputWord = (event) => {
   data.newWords.push(text);
 
   /* -- render new words -- */
-  const objNewList = renderList(data.newWords, data.rememberedWords); //{new: ulElNew, remembered: ulElRemembered}
-  const newList = objNewList.new; //ulElNew
-  const rememberedList = objNewList.remembered; //ulElRemembered
+  const objNewList = renderList(data.newWords, data.rememberedWords); // {new: ulElNew, remembered: ulElRemembered}
+  const newList = objNewList.new; // ulElNew
+  const rememberedList = objNewList.remembered; // ulElRemembered
   const newListContainer = document.getElementById('new-list-container');
   const rememberedListContainer = document.getElementById(
     'remembered-list-container',
