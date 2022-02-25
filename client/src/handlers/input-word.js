@@ -35,12 +35,14 @@ export const inputWord = (event) => {
 
   // if input box is empty, send waring and return.
   if (text.length === 0) {
-    return (warnings.innerText = 'Please enter a word');
+    warnings.innerText = 'Please enter a word';
+    return;
   }
 
-  // if input contains non-letters, send waring and return
+  // if input contains non-letters, send warning and return
   if (!isWord) {
-    return (warnings.innerText = `"${text}" is not a word`);
+    warnings.innerText = `"${text}" is not a word`;
+    return;
   }
   // otherwise, push text to new words list.
   data.newWords.push(text);
