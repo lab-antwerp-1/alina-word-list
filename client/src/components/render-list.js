@@ -3,7 +3,7 @@
  *
  * @param {Array} [toRenderNew = []] - An array of words to render to new list.
  * @param {Array} [toRenderRemembered = []] - An array of words to render to remembered list.
- * @returns {Object} - Contain new list ul and remembered list ul.
+ * @returns {object} - Contain new list ul and remembered list ul.
  *
  */
 export const renderList = (toRenderNew = [], toRenderRemembered = []) => {

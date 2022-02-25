@@ -33,7 +33,7 @@ export const inputWord = (event) => {
   const warnings = document.getElementById('warnings');
   warnings.innerText = '';
 
-  // if input box is empty, send waring and return.
+  // if input box is empty, send warning and return.
   if (text.length === 0) {
     warnings.innerText = 'Please enter a word';
     return;
