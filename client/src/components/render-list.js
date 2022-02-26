@@ -32,9 +32,9 @@ export const renderList = (data) => {
     const imgElNewForTrash = document.createElement('img');
     imgElNewForEdit.src = 'client/public/description-edit-3.png';
     imgElNewForTrash.src = 'client/public/trash-2.png';
-    imgElNewForEdit.className = 'pen';
-    imgElNewForTrash.className = 's-trash';
-
+    imgElNewForEdit.className = 'new-pen';
+    imgElNewForTrash.className = 'new-trash';
+    
     // append to td
     tdElNewForCheck.appendChild(inputElNewForCheck); // check box
     tdElNewForLabel.appendChild(labelElNewForWord); // label with word
@@ -69,8 +69,8 @@ export const renderList = (data) => {
     const imgElRememberedForTrash = document.createElement('img');
     imgElRememberedForEdit.src = 'client/public/description-edit-3.png';
     imgElRememberedForTrash.src = 'client/public/trash-2.png';
-    imgElRememberedForEdit.className = 'pen';
-    imgElRememberedForTrash.className = 's-trash';
+    imgElRememberedForEdit.className = 'rem-pen';
+    imgElRememberedForTrash.className = 'rem-trash';
 
     // append to td
     tdElRememberedForCheck.appendChild(inputElRememberedForCheck); // check box
@@ -87,7 +87,10 @@ export const renderList = (data) => {
     tableElRemembered.appendChild(trElRemembered);
   }
 
-  // append tables to container
+
+  // clear container and append new tables to container
+  document.getElementById('new-list-container').innerHTML = '';
+  document.getElementById('remembered-list-container').innerHTML = '';
   document.getElementById('new-list-container').appendChild(tableElNew);
   document
     .getElementById('remembered-list-container')
