@@ -4,12 +4,53 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./client/public/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Word mnemonic device</title>
 
     <link href="./client/styles/index.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- intro section start -->
+      <header>
+        <h1>Word mnemonic device</h1>
+        <p class="intro">
+          Hi, welcome. "Word mnemonic device" helps you remembering words.
+          <br />
+          You can add word, remove word, edit word, sort word... <br />
+          Check the words from new words list and click remembered button, you
+          can move the words to remembered list. <br />
+          Check the words from remembered list and click overlooked button, you
+          will move the words back to new words list. Have fun!
+        </p>
+      </header>
+      <!-- intro section end -->
+      <!-- input section start -->
+      <form id="input-form">
+        <input name="text" placeholder="new word" id="input" />
+        <input type="button" value="add" id="add" />
+      </form>
+      <code id="warnings" class="warning"></code>
+      <!-- input section end -->
+      <!-- sort section start -->
+      <!-- sort section end -->
+      <!-- list container section start -->
+      <div class="list-container">
+        <div class="new-list">
+          <h3>New List</h3>
+          <div class="new-list-container" id="new-list-container"></div>
+        </div>
+        <div class="remembered-list">
+          <h3>remembered List</h3>
+          <div
+            class="remembered-list-container"
+            id="remembered-list-container"
+          ></div>
+        </div>
+      </div>
+      <!-- list container section end -->
+      <!-- footer start -->
+      <!-- footer end -->
+    </div>
 
     <script type="module" src="./client/src/init/index.js"></script>
   </body>
