@@ -17,7 +17,8 @@ export const inputWord = (event) => {
     return;
   }
   /* -- gather user input from DOM -- */
-  const text = event.target.form.text.value;
+  // const text = event.target.form.text.value; // or get value by id
+  const text = document.getElementById('input').value;
 
   /* -- use the input and data to implement the user story --
 
@@ -45,7 +46,7 @@ export const inputWord = (event) => {
   }
   // otherwise, push text to new words list.
   data.newWords.push(text);
-  event.target.form.text.value = ''; //
+  document.getElementById('input').value = '';
 
   /* -- render new words -- */
   renderList(data);

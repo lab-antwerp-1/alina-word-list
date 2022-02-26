@@ -22,11 +22,12 @@ export const renderList = (data) => {
     const tdElNewForEdit = document.createElement('td');
     const tdElNewForTrash = document.createElement('td');
 
-    //use img instead of icon
+    // create table data items
     const inputElNewForCheck = document.createElement('input');
     inputElNewForCheck.type = 'checkbox';
     const labelElNewForWord = document.createElement('label');
     labelElNewForWord.innerText = item;
+    // use img instead of icon
     const imgElNewForEdit = document.createElement('img');
     const imgElNewForTrash = document.createElement('img');
     imgElNewForEdit.src = 'client/public/description-edit-3.png';
@@ -35,7 +36,7 @@ export const renderList = (data) => {
     imgElNewForTrash.className = 's-trash';
 
     // append to td
-    tdElNewForCheck.appendChild(inputElNewForCheck); // checkbox
+    tdElNewForCheck.appendChild(inputElNewForCheck); // check box
     tdElNewForLabel.appendChild(labelElNewForWord); // label with word
     tdElNewForEdit.appendChild(imgElNewForEdit); // pen icon
     tdElNewForTrash.appendChild(imgElNewForTrash); // trash icon
@@ -58,11 +59,12 @@ export const renderList = (data) => {
     const tdElRememberedForEdit = document.createElement('td');
     const tdElRememberedForTrash = document.createElement('td');
 
-    //use img instead of icon
+    // create table data items
     const inputElRememberedForCheck = document.createElement('input');
     inputElRememberedForCheck.type = 'checkbox';
     const labelElRememberedForWord = document.createElement('label');
     labelElRememberedForWord.innerText = ele;
+    // use img instead of icon
     const imgElRememberedForEdit = document.createElement('img');
     const imgElRememberedForTrash = document.createElement('img');
     imgElRememberedForEdit.src = 'client/public/description-edit-3.png';
@@ -71,7 +73,7 @@ export const renderList = (data) => {
     imgElRememberedForTrash.className = 's-trash';
 
     // append to td
-    tdElRememberedForCheck.appendChild(inputElRememberedForCheck); // checkbox
+    tdElRememberedForCheck.appendChild(inputElRememberedForCheck); // check box
     tdElRememberedForLabel.appendChild(labelElRememberedForWord); // label with word
     tdElRememberedForEdit.appendChild(imgElRememberedForEdit); // pen icon
     tdElRememberedForTrash.appendChild(imgElRememberedForTrash); // trash icon
@@ -84,6 +86,7 @@ export const renderList = (data) => {
     // append to table
     tableElRemembered.appendChild(trElRemembered);
   }
+
   // append tables to container
   document.getElementById('new-list-container').appendChild(tableElNew);
   document
