@@ -29,7 +29,6 @@ export const inputWord = (event) => {
         it will be added to the words list
         the list will be re-rendered
   */
-
   const warnings = document.getElementById('warnings');
   warnings.innerText = '';
 
@@ -40,23 +39,14 @@ export const inputWord = (event) => {
   }
 
   // if input contains non-letters, send warning and return
-  if (!isWord) {
+  if (!isWord(text)) {
     warnings.innerText = `"${text}" is not a word`;
     return;
   }
   // otherwise, push text to new words list.
   data.newWords.push(text);
+  event.target.form.text.value = ''; //
 
   /* -- render new words -- */
-  const objNewList = renderList(data.newWords, data.rememberedWords); // {new: ulElNew, remembered: ulElRemembered}
-  const newList = objNewList.new; // ulElNew
-  const rememberedList = objNewList.remembered; // ulElRemembered
-  const newListContainer = document.getElementById('new-list-container');
-  const rememberedListContainer = document.getElementById(
-    'remembered-list-container',
-  );
-  newListContainer.innerHTML = '';
-  newListContainer.appendChild(newList);
-  rememberedListContainer.innerHTML = '';
-  rememberedListContainer.appendChild(rememberedList);
+  renderList(data);
 };

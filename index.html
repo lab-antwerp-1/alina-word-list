@@ -7,6 +7,10 @@
     <title>Word mnemonic device</title>
 
     <link href="./client/styles/index.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/26780e6d23.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div id="root">
@@ -26,8 +30,8 @@
       <!-- intro section end -->
       <!-- input section start -->
       <form id="input-form">
-        <input name="text" placeholder="new word" id="input"/>
-        <input type="button" value="add" id="add"/>
+        <input name="text" placeholder="new word" id="input" />
+        <input type="button" value="add" id="add" />
       </form>
       <code id="warnings" class="warning"></code>
       <!-- input section end -->
@@ -35,14 +39,36 @@
       <!-- sort section end -->
       <!-- list container section start -->
       <div class="list-container">
-        <h3>New List</h3>
-        <div class="new-list-container" id="new-list-container">
+        <div class="new-list">
+          <h3>New List</h3>
+          <input
+            type="button"
+            value="remembered"
+            class="move-to-remenbered"
+            id="new-button"
+          />
+          <i class="fa-solid fa-trash-can"></i>
+          <div class="new-list-container" id="new-list-container"></div>
         </div>
-        <h3>remembered List</h3>
-        <div class="remembered-list-container" id="remembered-list-container">
+
+        <div class="remembered-list">
+          <h3>remembered List</h3>
+          <input
+            type="button"
+            value="overlooked"
+            class="move-to-new"
+            id="new-button"
+          />
+          <i class="fa-solid fa-trash-can"></i>
+          <div
+            class="remembered-list-container"
+            id="remembered-list-container"
+          ></div>
         </div>
       </div>
       <!-- list container section end -->
+      <!-- footer start -->
+      <!-- footer end -->
     </div>
 
     <script type="module" src="./client/src/init/index.js"></script>
