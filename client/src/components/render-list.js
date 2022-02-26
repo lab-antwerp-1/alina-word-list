@@ -34,7 +34,7 @@ export const renderList = (data) => {
     imgElNewForTrash.src = 'client/public/trash-2.png';
     imgElNewForEdit.className = 'new-pen';
     imgElNewForTrash.className = 'new-trash';
-    
+
     // append to td
     tdElNewForCheck.appendChild(inputElNewForCheck); // check box
     tdElNewForLabel.appendChild(labelElNewForWord); // label with word
@@ -86,7 +86,6 @@ export const renderList = (data) => {
     // append to table
     tableElRemembered.appendChild(trElRemembered);
   }
-
 
   // clear container and append new tables to container
   document.getElementById('new-list-container').innerHTML = '';
