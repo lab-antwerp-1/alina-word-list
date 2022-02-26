@@ -37,8 +37,8 @@ This app helps user remembering words. You can add word, remove word, edit word,
 > a user can read instruction of this word list app.
 
 #### HTML 
-- [ ] a title tag "word list maker"
-- [ ] a h1 tag "word list maker"
+- [ ] title "Word Mnemonic Device"
+- [ ] a h1 tag "Word Mnemonic Device"
 - [ ] a p tag of some instruction
 
 #### CSS  
