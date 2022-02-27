@@ -32,8 +32,8 @@ export const renderList = (data) => {
     const imgElNewForTrash = document.createElement('img');
     imgElNewForEdit.src = 'client/public/description-edit-3.png';
     imgElNewForTrash.src = 'client/public/trash-2.png';
-    imgElNewForEdit.className = 'pen';
-    imgElNewForTrash.className = 's-trash';
+    imgElNewForEdit.className = 'new-pen';
+    imgElNewForTrash.className = 'new-trash';
 
     // append to td
     tdElNewForCheck.appendChild(inputElNewForCheck); // check box
@@ -69,8 +69,8 @@ export const renderList = (data) => {
     const imgElRememberedForTrash = document.createElement('img');
     imgElRememberedForEdit.src = 'client/public/description-edit-3.png';
     imgElRememberedForTrash.src = 'client/public/trash-2.png';
-    imgElRememberedForEdit.className = 'pen';
-    imgElRememberedForTrash.className = 's-trash';
+    imgElRememberedForEdit.className = 'rem-pen';
+    imgElRememberedForTrash.className = 'rem-trash';
 
     // append to td
     tdElRememberedForCheck.appendChild(inputElRememberedForCheck); // check box
