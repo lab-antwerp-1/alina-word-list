@@ -5,6 +5,7 @@ import { renderList } from '../components/render-list.js';
 import '../listeners/input-word.js';
 import '../listeners/remove-word.js';
 import '../listeners/sort-words.js';
+import '../listeners/move-word.js';
 
 /* --- any other code that executes when the document or window are ready --- */
 

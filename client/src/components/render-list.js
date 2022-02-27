@@ -25,6 +25,7 @@ export const renderList = (data) => {
     // create table data items
     const inputElNewForCheck = document.createElement('input');
     inputElNewForCheck.type = 'checkbox';
+    inputElNewForCheck.className = 'new-list-checkbox'; // set class name for check box of new list.
     const labelElNewForWord = document.createElement('label');
     labelElNewForWord.innerText = item;
     // use img instead of icon
@@ -62,6 +63,7 @@ export const renderList = (data) => {
     // create table data items
     const inputElRememberedForCheck = document.createElement('input');
     inputElRememberedForCheck.type = 'checkbox';
+    inputElRememberedForCheck.className = 'rem-list-checkbox'; // set class name for check box of remembered list.
     const labelElRememberedForWord = document.createElement('label');
     labelElRememberedForWord.innerText = ele;
     // use img instead of icon
