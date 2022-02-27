@@ -1,7 +1,7 @@
 /**
  * Render components to UI.
  *
- * @param {object} [data = {}] - An object of words to render.
+ * @param {object} [data = {}] - An object which contain two word lists and a sort type.
  */
 export const renderList = (data) => {
   // debugger;
