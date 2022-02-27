@@ -18,11 +18,11 @@
       <header>
         <h1>Word mnemonic device</h1>
         <p class="intro">
-          Hi, welcome. This app helps you remembering words. <br />
-          There are two word lists. You can add word, remove word, edit word,
-          sort word... <br />
+          Hi, welcome. "Word mnemonic device" helps you remembering words. <br /><br />
+          It divides words into "new" and "remembered" list. You can add, remove, edit,
+          sort word... <br /><br />
           Check the words from new words list and click remembered button, you
-          can move the words to remembered list. <br />
+          can move the words to remembered list. <br /><br />
           Check the words from remembered list and click overlooked button, you
           will move the words back to new words list. Have fun!
         </p>
@@ -47,7 +47,7 @@
             class="move-to-remenbered"
             id="new-button"
           />
-          <i class="fa-solid fa-trash-can"></i>
+          <i class="fa-solid fa-trash-can" id="new-remove-all"></i>
           <div class="new-list-container" id="new-list-container"></div>
         </div>
 
@@ -59,7 +59,7 @@
             class="move-to-new"
             id="new-button"
           />
-          <i class="fa-solid fa-trash-can"></i>
+          <i class="fa-solid fa-trash-can" id="rem-remove-all"></i>
           <div
             class="remembered-list-container"
             id="remembered-list-container"
