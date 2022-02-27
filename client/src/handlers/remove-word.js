@@ -32,7 +32,7 @@ export const removeWordHandler = (event) => {
   }
   if (event.target.className === 'rem-trash') {
     const wordToRemove =
-      event.target.parentNode.parentNode.children[1].children[0];
+      event.target.parentNode.parentNode.children[1].children[0].innerHTML;
     const indexOfWordToRemove = data.newWords.indexOf(wordToRemove);
     // update state
     data.rememberedWords.splice(indexOfWordToRemove, 1);
