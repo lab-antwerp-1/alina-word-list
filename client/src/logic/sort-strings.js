@@ -14,7 +14,6 @@
  * @returns {Array[]} A new sorted array containing the same strings as toSort.
  * @example
  *
- * // ... write this!
  * sortStrings = (["ab", "abc", "hello"], sortType = 'oldest') -> ["ab", "abc", "hello"]
  * sortStrings = (["ab", "abc", "hello"], sortType = 'longest') -> ["hello", "abc","ab"]
  */
@@ -36,23 +35,3 @@ export const sortStrings = (toSort = [], sortType = 'oldest') => {
         .reverse()
     : [...toSort];
 };
-
-// try 1
-/* export const sortStrings = (newToSort = [], remberedToSort = [], sortType = 'oldest') => {
-  const caseInsensitiveSorting = (a, b) => {
-    return a.toLowerCase().localeCompare(b.toLowerCase());
-  };
-  return sortType === 'newest'
-    ? [...toSort].reverse()
-    : sortType === 'a'
-    ? [...toSort].sort(caseInsensitiveSorting)
-    : sortType === 'z'
-    ? [...toSort].sort(caseInsensitiveSorting).reverse()
-    : sortType === 'shortest'
-    ? [...toSort].sort((e, eNext) => e.length - eNext.length)
-    : sortType === 'longest'
-    ? [...toSort]
-        .sort((ele, toBeSort) => ele.length - toBeSort.length)
-        .reverse()
-    : [...toSort];
-}; */
