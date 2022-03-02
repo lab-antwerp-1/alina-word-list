@@ -26,37 +26,27 @@ export const editItemHandler = (event) => {
   const dynamicInstructions = document.getElementById('dynamic-instructions');
   dynamicInstructions.innerText = '';
 
-  if (!data.isEditing) {
-    // not editing
+  if (!data.isEditing) { // not editing
+    
     /* 1st call */
     /* 1st time click "pen" icon */
-
-    // get the specific label element and set its content editable.
-    const toEditLabelEl =
-      event.target.parentElement.parentElement.children[1].children[0];
-    // create reference variable. using to get index of text in array list
-    const toEditText = toEditLabelEl.innerText;
-    // set the label element editable
-    toEditLabelEl.contentEditable = 'true';
-    // change the background color
-    toEditLabelEl.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
-
-    // focus
-    toEditLabelEl.focus();
-
-    // store the index of the text to data, the index of tr in table equals to the index of the text.
-    if (event.target.className === 'new-pen') {
+    
+    const toEditLabelEl = 
+      event.target.parentElement.parentElement.children[1].children[0];   // get the specific label element
+    const toEditText = toEditLabelEl.innerText;                           // get the text of the label element
+    toEditLabelEl.contentEditable = 'true';                               // set the label element editable
+    toEditLabelEl.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';         // change the background color    
+    toEditLabelEl.focus();                                                // focus    
+    if (event.target.className === 'new-pen') {                           // store the index of the text to data respectively
       data.indexWordNew = data.newWords.indexOf(toEditText);
     } else {
       data.indexWordRemembered = data.rememberedWords.indexOf(toEditText);
-    }
-    // update the edit status in data
-    data.isEditing = true;
-    // display instructions
+    }    
+    data.isEditing = true;                                                // update the edit status in data
     dynamicInstructions.innerText =
-      'Click the pen icon beside or press Enter to save.';
-  } else {
-    // is editing
+      'Click the pen icon beside or press Enter to save.';                // display instructions
+
+  } else { // is editing
 
     /* 2nd call */
     /* 2nd time click the same "pen" icon, confirm edits.

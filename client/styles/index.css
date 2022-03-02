@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,600;0,700;1,600;1,700&family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Roboto+Serif:ital,wght@0,600;0,700;1,600;1,700&family=Roboto:wght@300&display=swap');
+
 /* style general -start */
 :root {
   --header-font: 'Roboto', serif;
@@ -26,7 +27,7 @@
   --bg-color: #000;
   --bg-faded-color: #222;
   --border-color: #3a3a3a;
-  --black: #000000;
+  --black: #000;
   --cyan-bluish-gray: #abb8c3;
   --white: #ffffff;
   --vivid-red: #cf2e2e;
@@ -42,6 +43,7 @@
 body {
   margin: 0;
   padding: 0;
+
   /* cancel auto layout margins */
   height: 100%;
   font-size: var(--font-size--small);
@@ -75,6 +77,7 @@ body {
   font-size: var(--font-size--medium);
   font-weight: 700;
   transition: transform 0.3s;
+
   /* transform for change size when hover */
   /* for button, "add", "remembered", "overlooked" */
 }
@@ -85,19 +88,23 @@ body {
   background-color: var(--vivid-green-cyan);
   transform: scale(1.05);
   box-shadow: 2px 4px var(--black);
+
   /* for btn hover: add/remembered/overlooked */
 }
+
 /* style general -end */
 
 /* style intro section - start */
 .header {
   margin: 5px auto;
+
   /* for header */
 }
 
 .header h1 {
   font-family: var(--header-font);
   text-align: center;
+
   /* for h1 */
 }
 
@@ -107,8 +114,10 @@ body {
   line-height: var(--primary-line-height);
   text-align: left;
   padding: 20px;
+
   /* for p.intro */
 }
+
 /* style intro section -  end */
 
 /* style input section + sort section - start */
@@ -126,12 +135,14 @@ body {
   border: 2px solid #ccc;
   border-radius: 3px;
   transition: 0.5s;
+
   /* for input box, select drop down list */
 }
 
 #sort-type:hover,
 #input:hover {
   border: 1px solid green;
+
   /* for input box, select drop down list hover */
 }
 
@@ -141,28 +152,34 @@ body {
   border: 2px solid green;
   border-radius: 3px;
   box-shadow: 0 0 10px #719ece;
+
   /* for input box, sort drop down list focus */
 }
 
 #sort-type option {
   text-align: center;
+
   /* for select drop down list, option */
 }
 
 #input-form {
   margin-left: 10px;
+
   /* for form id:input-form */
 }
 
 #add {
   margin-left: 8px;
+
   /* for btn input id:add */
 }
+
 /* style input section + sort section -  end */
 /* style dynamic intro section - start */
 .dynamic-intro-container {
   height: 80px;
   text-align: center;
+
   /* for div */
 }
 
@@ -171,6 +188,7 @@ body {
   font-size: 1.5rem;
   color: red;
   display: block;
+
   /* for code warning */
 }
 
@@ -179,8 +197,10 @@ body {
   font-size: 1.5rem;
   color: var(--vivid-green-cyan);
   display: block;
+
   /* for code dynamic-instructions */
 }
+
 /* style dynamic intro section -  end */
 
 /* style list container section - start */
@@ -193,6 +213,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+
   /* for div list-container */
 }
 
@@ -200,6 +221,7 @@ body {
 .remembered-list {
   display: flex;
   flex-direction: column;
+
   /* justify-content: space-between; */
   /* for sub div .new-list + .remembered-list */
 }
@@ -207,12 +229,13 @@ body {
 .flex-container-new,
 .flex-container-rem {
   display: flex;
-  /* align-self: flex-start; */
+  
   /* for btn, icon function of lists. not use*/
 }
 
 .list-container h3 {
   font-family: var(--header-font);
+
   /* for grandson h3 in its sub div, selector useful?? */
 }
 
@@ -220,6 +243,7 @@ body {
 .move-to-new {
   margin-top: 28.08px;
   margin-bottom: 28.08px;
+
   /* for btn "remembered" .move-to-remembered #remembered-button */
   /* for btn "overlooked" .move-to-new #overlooked-button */
 }
@@ -230,6 +254,7 @@ body {
   margin-left: 10px;
   margin-top: 28.08px;
   margin-bottom: 28.08px;
+
   /* for trash #new-remove-all + #rem-remove-all */
 }
 
@@ -242,6 +267,7 @@ body {
 .new-list-container,
 .remembered-list-container {
   text-align: left;
+
   /* for sub sub div .new-list-container #new-list-container */
   /* for sub sub div .remembered-list-container #remembered-list-container */
 }
@@ -250,6 +276,7 @@ input[type='checkbox'] {
   width: 20px;
   height: 20px;
   background-color: #00d084;
+
   /* for checkbox input */
 }
 
@@ -261,6 +288,7 @@ input[type='checkbox'] {
   padding: 3px;
   margin-left: 10px;
   float: left;
+
   /* for label */
 }
 
@@ -268,26 +296,31 @@ input[type='checkbox'] {
 .rem-pen {
   margin-left: 10px;
   padding: auto;
+
   /* for pen */
 }
 
 .new-pen:hover,
 .rem-pen:hover {
   transform: scale(1.3);
+
   /* for pen hover */
 }
 
 .new-trash,
 .rem-trash {
   margin-left: 10px;
+
   /* box-shadow: 2px 4px var(--color-gray-3);  */
   /* for trash */
 }
 .new-trash:hover,
 .rem-trash:hover {
   transform: scale(1.3);
+
   /* for trash */
 }
+
 /* style list container section -  end */
 /* style footer start - start */
 .footer {
@@ -296,12 +329,6 @@ input[type='checkbox'] {
   background-color: var(--color-gray-2);
   display: flex;
   justify-content: center;
-  /* position: fixed; */
-  /* left: 0;
-  bottom: 0; */
-  /* width: 100%; */
-  /* background-color: red; */
-  /* text-align: center; */
 
   /* for footer .footer */
 }
@@ -309,17 +336,17 @@ input[type='checkbox'] {
 .footer-intro {
   font-family: var(--paragraph-font);
   font-size: 1.5rem;
-  /* display: inline-block; */
+
   /* for p .footer-intro */
 }
 
 #github {
-  /* text-shadow: 1px 1px 1px #ccc; */
   font-size: 3em;
   margin-left: 6px;
   margin-top: 12px;
   color: #000;
   transition: transform 0.3s;
+
   /* for "github" i #github */
 }
 
@@ -327,6 +354,8 @@ input[type='checkbox'] {
   color: var(--vivid-purple);
   transform: scale(1.1);
   box-shadow: 2px 4px var(--color-gray-3);
+
   /* for "github" i #github */
 }
+
 /* style footer start -  end */
