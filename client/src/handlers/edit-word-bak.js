@@ -21,6 +21,9 @@ export const editItemHandler = (event) => {
   const t = event.target;
 
   /* -- check the target -- */
+  if (!(targetAtNewPen(t) || targetAtRemPen(t))) {
+    return;
+  }
 
   /* declare global variable for: warning and dynamic instructions */
   const warnings = document.getElementById('warnings');
