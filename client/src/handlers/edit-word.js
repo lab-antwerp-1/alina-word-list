@@ -1,12 +1,11 @@
 import { data } from '../../data.js';
 import { renderList } from '../components/render-list.js';
-
-/** target logic: which component the event targets at */
-const targetAtNewPen = (t) => (t.className === 'new-pen');
-const targetAtRemPen = (t) => (t.className === 'rem-pen');
-
-const targetAtNewList = (t) => (t.className === 'new-list-label');
-const targetAtRemList = (t) => (t.className === 'rem-list-label');
+import {
+  targetAtNewPen,
+  targetAtRemPen,
+  targetAtNewList,
+  targetAtRemList,
+} from '../logic/target-logic.js';
 
 /**
  * Entry point for users edit a word on the list.
@@ -22,7 +21,7 @@ export const editItemHandler = (event) => {
   const t = event.target;
 
   /* -- check the target -- */
-  if ( !(targetAtNewPen(t)||targetAtRemPen(t)) ) {    
+  if (!(targetAtNewPen(t) || targetAtRemPen(t))) {
     return;
   }
 
@@ -36,8 +35,7 @@ export const editItemHandler = (event) => {
     // not editing
     /* 1st time click "pen" icon */
 
-    const toEditLabelEl =
-      t.parentElement.parentElement.children[1].children[0]; // get the specific label element
+    const toEditLabelEl = t.parentElement.parentElement.children[1].children[0]; // get the specific label element
     const toEditText = toEditLabelEl.innerText; // get the text of the label element
     toEditLabelEl.contentEditable = 'true'; // set the label element editable
     toEditLabelEl.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'; // change the background color
@@ -62,10 +60,11 @@ export const editItemHandler = (event) => {
     const table = tr.parentElement; // table
     const indexClicked = Array.from(table.children).indexOf(tr); // the index clicked
 
-    const caseWordNew = targetAtNewPen(t) && (indexClicked === data.indexWordNew);
-    const caseWordRemembered = targetAtRemPen(t) && (indexClicked === data.indexWordRemembered);
+    const caseWordNew = targetAtNewPen(t) && indexClicked === data.indexWordNew;
+    const caseWordRemembered =
+      targetAtRemPen(t) && indexClicked === data.indexWordRemembered;
     /* all the wrong cases */
-    if ( !(caseWordNew || caseWordRemembered) ) {
+    if (!(caseWordNew || caseWordRemembered)) {
       warnings.innerText = 'Please confirm edits! ';
       return;
     }
@@ -122,7 +121,7 @@ export const confirmEditWithEnterHandler = (event) => {
   /* -- check the target -- */
   // target will be a label (i.e. text box)
   /* all the wrong cases */
-  if ( !( targetAtNewList(t) || targetAtRemList(t) ) ) {
+  if (!(targetAtNewList(t) || targetAtRemList(t))) {
     return;
   }
 
