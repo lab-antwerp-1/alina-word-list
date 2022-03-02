@@ -8,12 +8,15 @@ import { renderList } from '../components/render-list.js';
  * @param {Event} event - The event triggered when the user clicks the button.
  */
 
-export const editItemHandler = function(event) {
+export const editItemHandler = (event) => {
   /* -- entry point for editing and confirm editing a word in the lists of words -- */
   // debugger;
 
   /* -- check the target -- */
-  if ( event.target.className !== 'new-pen' && event.target.className !== 'rem-pen' ) {
+  if (
+    event.target.className !== 'new-pen' &&
+    event.target.className !== 'rem-pen'
+  ) {
     return;
   }
 
@@ -23,24 +26,26 @@ export const editItemHandler = function(event) {
   const dynamicInstructions = document.getElementById('dynamic-instructions');
   dynamicInstructions.innerText = '';
 
-  if (!data.isEditing) { 
-    // not editing    
+  if (!data.isEditing) {
+    // not editing
     /* 1st time click "pen" icon */
-    
-    const toEditLabelEl = event.target.parentElement.parentElement.children[1].children[0];   // get the specific label element
-    const toEditText = toEditLabelEl.innerText;                           // get the text of the label element
-    toEditLabelEl.contentEditable = 'true';                               // set the label element editable
-    toEditLabelEl.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';         // change the background color    
-    toEditLabelEl.focus();                                                // focus    
-    if (event.target.className === 'new-pen') {                           // store the index of the text to data respectively
+
+    const toEditLabelEl =
+      event.target.parentElement.parentElement.children[1].children[0]; // get the specific label element
+    const toEditText = toEditLabelEl.innerText; // get the text of the label element
+    toEditLabelEl.contentEditable = 'true'; // set the label element editable
+    toEditLabelEl.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'; // change the background color
+    toEditLabelEl.focus(); // focus
+    if (event.target.className === 'new-pen') {
+      // store the index of the text to data respectively
       data.indexWordNew = data.newWords.indexOf(toEditText);
     } else {
       data.indexWordRemembered = data.rememberedWords.indexOf(toEditText);
-    }    
-    data.isEditing = true;                                                // update the edit status in data
-    dynamicInstructions.innerText = 'Click the pen icon beside or press Enter to save.';                // display instructions
-
-  } else { 
+    }
+    data.isEditing = true; // update the edit status in data
+    dynamicInstructions.innerText =
+      'Click the pen icon beside or press Enter to save.'; // display instructions
+  } else {
     // is editing
     /* 2nd time click the same "pen" icon, confirm edits.
       replace the original word with the edited word, empty variable index,
@@ -51,8 +56,12 @@ export const editItemHandler = function(event) {
     const table = tr.parentElement; // table
     const indexClicked = Array.from(table.children).indexOf(tr); // the index clicked
 
-    const caseWordNew = ( event.target.className === 'new-pen' && indexClicked === data.indexWordNew );
-    const caseWordRemembered = ( event.target.className === 'rem-pen' && indexClicked === data.indexWordRemembered );
+    const caseWordNew =
+      event.target.className === 'new-pen' &&
+      indexClicked === data.indexWordNew;
+    const caseWordRemembered =
+      event.target.className === 'rem-pen' &&
+      indexClicked === data.indexWordRemembered;
     /* all the wrong cases */
     if (!(caseWordNew || caseWordRemembered)) {
       warnings.innerText = 'Please confirm edits! ';
@@ -109,7 +118,12 @@ export const confirmEditWithEnterHandler = (event) => {
   /* -- check the target -- */
   // target will be a label (i.e. text box)
   /* all the wrong cases */
-  if ( !( event.target.className === 'new-list-label' || event.target.className === 'rem-list-label') ) {
+  if (
+    !(
+      event.target.className === 'new-list-label' ||
+      event.target.className === 'rem-list-label'
+    )
+  ) {
     return;
   }
 
@@ -132,7 +146,11 @@ export const confirmEditWithEnterHandler = (event) => {
     data.newWords.splice(data.indexWordNew, 1, textBox.textContent);
     data.indexWordNew = null; // empty the index
   } else {
-    data.rememberedWords.splice(data.indexWordRemembered, 1, textBox.textContent);
+    data.rememberedWords.splice(
+      data.indexWordRemembered,
+      1,
+      textBox.textContent,
+    );
     data.indexWordRemembered = null; // empty the index
   }
   data.isEditing = false; // update the edit status in data

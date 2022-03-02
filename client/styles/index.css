@@ -233,7 +233,7 @@ body {
 .flex-container-new,
 .flex-container-rem {
   display: flex;
-  
+
   /* for btn, icon function of lists */
 }
 
@@ -311,6 +311,7 @@ input[type='checkbox'] {
 
   /* for trash */
 }
+
 .new-trash:hover,
 .rem-trash:hover {
   transform: scale(1.3);
