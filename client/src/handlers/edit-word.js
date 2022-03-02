@@ -1,6 +1,13 @@
 import { data } from '../../data.js';
 import { renderList } from '../components/render-list.js';
 
+/** target logic: which component the event targets at */
+const targetAtNewPen = (t) => (t.className === 'new-pen');
+const targetAtRemPen = (t) => (t.className === 'rem-pen');
+
+const targetAtNewList = (t) => (t.className === 'new-list-label');
+const targetAtRemList = (t) => (t.className === 'rem-list-label');
+
 /**
  * Entry point for users edit a word on the list.
  * It is called each time the user clicks the "pen" button.
@@ -12,11 +19,10 @@ export const editItemHandler = (event) => {
   /* -- entry point for editing and confirm editing a word in the lists of words -- */
   // debugger;
 
+  const t = event.target;
+
   /* -- check the target -- */
-  if (
-    event.target.className !== 'new-pen' &&
-    event.target.className !== 'rem-pen'
-  ) {
+  if ( !(targetAtNewPen(t)||targetAtRemPen(t)) ) {    
     return;
   }
 
@@ -31,12 +37,12 @@ export const editItemHandler = (event) => {
     /* 1st time click "pen" icon */
 
     const toEditLabelEl =
-      event.target.parentElement.parentElement.children[1].children[0]; // get the specific label element
+      t.parentElement.parentElement.children[1].children[0]; // get the specific label element
     const toEditText = toEditLabelEl.innerText; // get the text of the label element
     toEditLabelEl.contentEditable = 'true'; // set the label element editable
     toEditLabelEl.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'; // change the background color
     toEditLabelEl.focus(); // focus
-    if (event.target.className === 'new-pen') {
+    if (targetAtNewPen(t)) {
       // store the index of the text to data respectively
       data.indexWordNew = data.newWords.indexOf(toEditText);
     } else {
@@ -52,18 +58,14 @@ export const editItemHandler = (event) => {
       update the edit status in data, disable the label content editable, 
       and re-render UI */
 
-    const tr = event.target.parentElement.parentElement; // tr
+    const tr = t.parentElement.parentElement; // tr
     const table = tr.parentElement; // table
     const indexClicked = Array.from(table.children).indexOf(tr); // the index clicked
 
-    const caseWordNew =
-      event.target.className === 'new-pen' &&
-      indexClicked === data.indexWordNew;
-    const caseWordRemembered =
-      event.target.className === 'rem-pen' &&
-      indexClicked === data.indexWordRemembered;
+    const caseWordNew = targetAtNewPen(t) && (indexClicked === data.indexWordNew);
+    const caseWordRemembered = targetAtRemPen(t) && (indexClicked === data.indexWordRemembered);
     /* all the wrong cases */
-    if (!(caseWordNew || caseWordRemembered)) {
+    if ( !(caseWordNew || caseWordRemembered) ) {
       warnings.innerText = 'Please confirm edits! ';
       return;
     }
@@ -76,7 +78,7 @@ export const editItemHandler = (event) => {
       return;
     }
     // Text box not empty, save the text depending on different lists and empty variable index
-    if (event.target.className === 'new-pen') {
+    if (targetAtNewPen(t)) {
       data.newWords.splice(indexClicked, 1, textBox.textContent);
       data.indexWordNew = null;
     } else {
@@ -115,15 +117,12 @@ export const confirmEditWithEnterHandler = (event) => {
   }
   /* is editing and Enter key pressed */
 
+  const t = event.target;
+
   /* -- check the target -- */
   // target will be a label (i.e. text box)
   /* all the wrong cases */
-  if (
-    !(
-      event.target.className === 'new-list-label' ||
-      event.target.className === 'rem-list-label'
-    )
-  ) {
+  if ( !( targetAtNewList(t) || targetAtRemList(t) ) ) {
     return;
   }
 
@@ -134,7 +133,7 @@ export const confirmEditWithEnterHandler = (event) => {
   dynamicInstructions.innerText = '';
 
   /* correct case */
-  const textBox = event.target;
+  const textBox = t;
   if (textBox.textContent.length < 1) {
     // if text box is empty, send warning and return.
     warnings.innerText = 'Text box is empty!!';
@@ -142,7 +141,7 @@ export const confirmEditWithEnterHandler = (event) => {
   }
   // Text box is not empty.
   // Save the text depending on different lists and empty variable index
-  if (event.target.className === 'new-list-label') {
+  if (targetAtNewList(t)) {
     data.newWords.splice(data.indexWordNew, 1, textBox.textContent);
     data.indexWordNew = null; // empty the index
   } else {
