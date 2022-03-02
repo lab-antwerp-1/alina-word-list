@@ -1,5 +1,5 @@
 import {
-  editItemHandler,
+  // editItemHandler,
   confirmEditWithEnterHandler,
 } from '../handlers/edit-word.js';
 
