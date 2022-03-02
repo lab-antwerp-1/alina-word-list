@@ -1,1 +1,332 @@
 @import url('./other-file.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,600;0,700;1,600;1,700&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Roboto+Serif:ital,wght@0,600;0,700;1,600;1,700&family=Roboto:wght@300&display=swap');
+/* style general -start */
+:root {
+  --header-font: 'Roboto', serif;
+  --paragraph-font: 'Hubballi', sans-serif;
+  --primary-horizontal-ratio: 85%;
+  --primary-line-height: 1.5;
+  --font-size--small: 13px;
+  --font-size--medium: 20px;
+  --font-size--large: 36px;
+  --font-size--x-large: 42px;
+  --color-gray-0: #f8f9fa;
+  --color-gray-1: #f1f3f5;
+  --color-gray-2: #e9ecef;
+  --color-gray-3: #dee2e6;
+  --color-gray-4: #ced4da;
+  --color-gray-5: #adb5bd;
+  --color-gray-6: #868e96;
+  --color-gray-7: #495057;
+  --color-gray-8: #343a40;
+  --color-gray-9: #212529;
+  --primary-subtle-color: #999;
+  --bg-color: #000;
+  --bg-faded-color: #222;
+  --border-color: #3a3a3a;
+  --black: #000000;
+  --cyan-bluish-gray: #abb8c3;
+  --white: #ffffff;
+  --vivid-red: #cf2e2e;
+  --luminous-vivid-orange: #ff6900;
+  --luminous-vivid-amber: #fcb900;
+  --light-green-cyan: #7bdcb5;
+  --vivid-green-cyan: #00d084;
+  --pale-cyan-blue: #8ed1fc;
+  --vivid-cyan-blue: #0693e3;
+  --vivid-purple: #9b51e0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* cancel auto layout margins */
+  height: 100%;
+  font-size: var(--font-size--small);
+}
+
+#root {
+  margin: auto;
+  width: var(--primary-horizontal-ratio);
+  background-color: var(--color-gray-0);
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+
+  /* for div id:root */
+  /* align all children center, font, background, color */
+}
+
+.btn,
+.move-to-remembered,
+.move-to-new {
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 1%), 0 1px 1px rgb(0 0 0 / 5%);
+  background: var(--vivid-cyan-blue);
+  color: var(--white);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 2px;
+  font-size: var(--font-size--medium);
+  font-weight: 700;
+  transition: transform 0.3s;
+  /* transform for change size when hover */
+  /* for button, "add", "remembered", "overlooked" */
+}
+
+.btn:hover,
+.move-to-remembered:hover,
+.move-to-new:hover {
+  background-color: var(--vivid-green-cyan);
+  transform: scale(1.05);
+  box-shadow: 2px 4px var(--black);
+  /* for btn hover: add/remembered/overlooked */
+}
+/* style general -end */
+
+/* style intro section - start */
+.header {
+  margin: 5px auto;
+  /* for header */
+}
+
+.header h1 {
+  font-family: var(--header-font);
+  text-align: center;
+  /* for h1 */
+}
+
+.header .intro {
+  font-family: var(--paragraph-font);
+  font-size: var(--font-size--medium);
+  line-height: var(--primary-line-height);
+  text-align: left;
+  padding: 20px;
+  /* for p.intro */
+}
+/* style intro section -  end */
+
+/* style input section + sort section - start */
+.input-sort-container {
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto;
+}
+
+#sort-type,
+#input {
+  font-family: var(--paragraph-font);
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  transition: 0.5s;
+  /* for input box, select drop down list */
+}
+
+#sort-type:hover,
+#input:hover {
+  border: 1px solid green;
+  /* for input box, select drop down list hover */
+}
+
+#input:focus,
+#sort-type:focus {
+  outline: none;
+  border: 2px solid green;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #719ece;
+  /* for input box, sort drop down list focus */
+}
+
+#sort-type option {
+  text-align: center;
+  /* for select drop down list, option */
+}
+
+#input-form {
+  margin-left: 10px;
+  /* for form id:input-form */
+}
+
+#add {
+  margin-left: 8px;
+  /* for btn input id:add */
+}
+/* style input section + sort section -  end */
+/* style dynamic intro section - start */
+.dynamic-intro-container {
+  height: 80px;
+  text-align: center;
+  /* for div */
+}
+
+.warning {
+  font-family: var(--paragraph-font);
+  font-size: 1.5rem;
+  color: red;
+  display: block;
+  /* for code warning */
+}
+
+.dynamic-instructions {
+  font-family: var(--paragraph-font);
+  font-size: 1.5rem;
+  color: var(--vivid-green-cyan);
+  display: block;
+  /* for code dynamic-instructions */
+}
+/* style dynamic intro section -  end */
+
+/* style list container section - start */
+
+.list-container {
+  margin: 10px auto;
+  font-family: var(--paragraph-font);
+  font-size: 1.5rem;
+  min-height: 40vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  /* for div list-container */
+}
+
+.new-list,
+.remembered-list {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* for sub div .new-list + .remembered-list */
+}
+
+.flex-container-new,
+.flex-container-rem {
+  display: flex;
+  /* align-self: flex-start; */
+  /* for btn, icon function of lists. not use*/
+}
+
+.list-container h3 {
+  font-family: var(--header-font);
+  /* for grandson h3 in its sub div, selector useful?? */
+}
+
+.move-to-remembered,
+.move-to-new {
+  margin-top: 28.08px;
+  margin-bottom: 28.08px;
+  /* for btn "remembered" .move-to-remembered #remembered-button */
+  /* for btn "overlooked" .move-to-new #overlooked-button */
+}
+
+#new-remove-all,
+#rem-remove-all {
+  font-size: 1em;
+  margin-left: 10px;
+  margin-top: 28.08px;
+  margin-bottom: 28.08px;
+  /* for trash #new-remove-all + #rem-remove-all */
+}
+
+#new-remove-all:hover,
+#rem-remove-all:hover {
+  color: var(--vivid-green-cyan);
+  transform: scale(1.1);
+}
+
+.new-list-container,
+.remembered-list-container {
+  text-align: left;
+  /* for sub sub div .new-list-container #new-list-container */
+  /* for sub sub div .remembered-list-container #remembered-list-container */
+}
+
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  background-color: #00d084;
+  /* for checkbox input */
+}
+
+.new-list-label,
+.rem-list-label {
+  border: 1px solid black;
+  width: 200px;
+  background-color: var(--color-gray-2);
+  padding: 3px;
+  margin-left: 10px;
+  float: left;
+  /* for label */
+}
+
+.new-pen,
+.rem-pen {
+  margin-left: 10px;
+  padding: auto;
+  /* for pen */
+}
+
+.new-pen:hover,
+.rem-pen:hover {
+  transform: scale(1.3);
+  /* for pen hover */
+}
+
+.new-trash,
+.rem-trash {
+  margin-left: 10px;
+  /* box-shadow: 2px 4px var(--color-gray-3);  */
+  /* for trash */
+}
+.new-trash:hover,
+.rem-trash:hover {
+  transform: scale(1.3);
+  /* for trash */
+}
+/* style list container section -  end */
+/* style footer start - start */
+.footer {
+  margin: auto;
+  width: var(--primary-horizontal-ratio);
+  background-color: var(--color-gray-2);
+  display: flex;
+  justify-content: center;
+  /* position: fixed; */
+  /* left: 0;
+  bottom: 0; */
+  /* width: 100%; */
+  /* background-color: red; */
+  /* text-align: center; */
+
+  /* for footer .footer */
+}
+
+.footer-intro {
+  font-family: var(--paragraph-font);
+  font-size: 1.5rem;
+  /* display: inline-block; */
+  /* for p .footer-intro */
+}
+
+#github {
+  /* text-shadow: 1px 1px 1px #ccc; */
+  font-size: 3em;
+  margin-left: 6px;
+  margin-top: 12px;
+  color: #000;
+  transition: transform 0.3s;
+  /* for "github" i #github */
+}
+
+#github:hover {
+  color: var(--vivid-purple);
+  transform: scale(1.1);
+  box-shadow: 2px 4px var(--color-gray-3);
+  /* for "github" i #github */
+}
+/* style footer start -  end */

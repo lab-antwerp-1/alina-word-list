@@ -7,4 +7,8 @@ export const data = {
   newWords: [],
   rememberedWords: [],
   sortType: 'oldest',
+  // Below properties are for feature edit
+  isEditing: false,
+  indexWordNew: null,
+  indexWordRemembered: null,
 };

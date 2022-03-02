@@ -39,7 +39,7 @@ export const moveItemHandler = (event) => {
         ele.parentElement.parentElement.children[1].children[0].innerHTML,
     );
     // get rid of the checked items from remembered list, update data.
-    data.rememberedWords = data.newWords.filter(
+    data.rememberedWords = data.rememberedWords.filter(
       (ele) => !itemsToMove.includes(ele),
     );
     // add items to remembered list

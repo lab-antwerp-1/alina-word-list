@@ -27,7 +27,10 @@ export const renderList = (data) => {
     inputElNewForCheck.type = 'checkbox';
     inputElNewForCheck.className = 'new-list-checkbox'; // set class name for check box of new list.
     const labelElNewForWord = document.createElement('label');
+    // const labelElNewForWord = document.createElement('input');
+    labelElNewForWord.className = 'new-list-label'; // set class name of label for edit in new list.
     labelElNewForWord.innerText = item;
+    labelElNewForWord.tabIndex = '-1';
     // use img instead of icon
     const imgElNewForEdit = document.createElement('img');
     const imgElNewForTrash = document.createElement('img');
@@ -65,7 +68,10 @@ export const renderList = (data) => {
     inputElRememberedForCheck.type = 'checkbox';
     inputElRememberedForCheck.className = 'rem-list-checkbox'; // set class name for check box of remembered list.
     const labelElRememberedForWord = document.createElement('label');
+    // const labelElRememberedForWord = document.createElement('input');
+    labelElRememberedForWord.className = 'rem-list-label'; // set class name of label for edit in remembered list.
     labelElRememberedForWord.innerText = ele;
+    labelElRememberedForWord.tabIndex = '-1';
     // use img instead of icon
     const imgElRememberedForEdit = document.createElement('img');
     const imgElRememberedForTrash = document.createElement('img');
