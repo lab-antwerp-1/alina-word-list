@@ -8,7 +8,7 @@ import { renderList } from '../components/render-list.js';
  * @param {Event} event - The event triggered when the user clicks the button.
  */
 
-export const editItemHandler = (event) => {
+export const editItemHandler = function(event) {
   /* -- entry point for editing and confirm editing a word in the lists of words -- */
   // debugger;
 
@@ -139,7 +139,7 @@ export const confirmEditWithEnterHandler = (event) => {
   textBox.contentEditable = 'false'; // change the attribute of the text box
   textBox.style.backgroundColor = ''; // restore the default background color
   dynamicInstructions.innerText = 'Text saved'; // display confirmation
-  
+
   /* -- re-render UI -- */
   renderList(data);
 };
