@@ -2,7 +2,7 @@
  * Target logic: which component the event targets at.
  *
  * @param {object} t - The target of an event.
- * @returns {Boolean}.
+ * @returns {boolean}.
  */
 export const targetAtNewPen = (t) => t.className === 'new-pen';
 
@@ -10,7 +10,7 @@ export const targetAtNewPen = (t) => t.className === 'new-pen';
  * Target logic: which component the event targets at.
  *
  * @param {object} t - The target of an event.
- * @returns {Boolean}.
+ * @returns {boolean}.
  */
 export const targetAtRemPen = (t) => t.className === 'rem-pen';
 
@@ -18,7 +18,7 @@ export const targetAtRemPen = (t) => t.className === 'rem-pen';
  * Target logic: which component the event targets at.
  *
  * @param {object} t - The target of an event.
- * @returns {Boolean}.
+ * @returns {boolean}.
  */
 export const targetAtNewList = (t) => t.className === 'new-list-label';
 
@@ -26,6 +26,6 @@ export const targetAtNewList = (t) => t.className === 'new-list-label';
  * Target logic: which component the event targets at.
  *
  * @param {object} t - The target of an event.
- * @returns {Boolean}.
+ * @returns {boolean}.
  */
 export const targetAtRemList = (t) => t.className === 'rem-list-label';
