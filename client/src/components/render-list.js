@@ -40,7 +40,7 @@ export const renderList = (data) => {
     imgElNewForTrash.src = 'client/public/trash-2.png';
     imgElNewForEdit.className = 'new-pen';
     imgElNewForTrash.className = 'new-trash';
-    // add event lister for editing
+    // add event listner for editing
     imgElNewForEdit.addEventListener('click', editItemHandler);
 
     // append to td
@@ -83,7 +83,7 @@ export const renderList = (data) => {
     imgElRememberedForTrash.src = 'client/public/trash-2.png';
     imgElRememberedForEdit.className = 'rem-pen';
     imgElRememberedForTrash.className = 'rem-trash';
-    // add event lister for editing
+    // add event listner for editing
     imgElRememberedForEdit.addEventListener('click', editItemHandler);
 
     // append to td
