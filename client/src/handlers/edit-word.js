@@ -55,7 +55,6 @@ export const editItemHandler = (event) => {
     // display instructions
     dynamicInstructions.innerText =
       'Click the pen icon beside or press Enter to save.';
-    return;
   } else {
     // is editing
 
