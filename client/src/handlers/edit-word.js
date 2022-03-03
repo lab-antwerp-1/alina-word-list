@@ -6,7 +6,7 @@ import {
   targetAtRemList,
   targetAtRemPen,
 } from '../logic/target-logic.js';
-import { updateComponentsState } from '../logic/update-components-status.js';
+import { updateComponentsState } from './update-components-status.js';
 
 const stringWarnings = 'warnings';
 const stringInstructions = 'dynamic-instructions';
