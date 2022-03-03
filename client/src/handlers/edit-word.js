@@ -2,6 +2,8 @@ import { data } from '../../data.js';
 import { renderList } from '../components/render-list.js';
 import { targetAtNewList, targetAtRemList } from '../logic/target-logic.js';
 
+const stringWarnings = 'warnings';
+const stringInstructions = 'dynamic-instructions';
 const messageHowToSave =
   'After editing, click the pen icon beside or press Enter to save.';
 const messageTextBoxEmpty = 'Text box is empty!!';
@@ -24,9 +26,9 @@ export const editItemHandlerNew = (event) => {
   /* -- check the target -- */
 
   /* declare global variable for: warning and dynamic instructions */
-  const warnings = document.getElementById('warnings');
+  const warnings = document.getElementById(stringWarnings);
   warnings.innerText = '';
-  const dynamicInstructions = document.getElementById('dynamic-instructions');
+  const dynamicInstructions = document.getElementById(stringInstructions);
   dynamicInstructions.innerText = '';
 
   if (!data.isEditingNew) {
@@ -92,9 +94,9 @@ export const editItemHandlerRem = (event) => {
   /* -- check the target -- */
 
   /* declare global variable for: warning and dynamic instructions */
-  const warnings = document.getElementById('warnings');
+  const warnings = document.getElementById(stringWarnings);
   warnings.innerText = '';
-  const dynamicInstructions = document.getElementById('dynamic-instructions');
+  const dynamicInstructions = document.getElementById(stringInstructions);
   dynamicInstructions.innerText = '';
 
   if (!data.isEditingRem) {
@@ -178,9 +180,9 @@ export const confirmEditWithEnterHandler = (event) => {
   }
 
   /* declare global variable for: warning and dynamic instructions */
-  const warnings = document.getElementById('warnings');
+  const warnings = document.getElementById(stringWarnings);
   warnings.innerText = '';
-  const dynamicInstructions = document.getElementById('dynamic-instructions');
+  const dynamicInstructions = document.getElementById(stringInstructions);
   dynamicInstructions.innerText = '';
 
   /* correct case */
@@ -192,18 +194,29 @@ export const confirmEditWithEnterHandler = (event) => {
   }
   // Text box is not empty.
   // Save the text depending on different lists and empty variable index
+  const tr = t.parentElement.parentElement; // tr
+  const table = tr.parentElement; // table
+  const indexTargeted = Array.from(table.children).indexOf(tr); // the index clicked
   if (targetAtNewList(t)) {
-    data.newWords.splice(data.indexWordNew, 1, textBox.textContent);
-    data.indexWordNew = null; // empty the index
-    data.isEditingNew = false; // update the edit status in data
+    if (indexTargeted === data.indexWordNew) {
+      data.newWords.splice(data.indexWordNew, 1, textBox.textContent);
+      data.indexWordNew = null; // empty the index
+      data.isEditingNew = false; // update the edit status in data
+    } else {
+      return;
+    }
   } else {
-    data.rememberedWords.splice(
-      data.indexWordRemembered,
-      1,
-      textBox.textContent,
-    );
-    data.indexWordRemembered = null; // empty the index
-    data.isEditingRem = false; // update the edit status in data
+    if (indexTargeted === data.indexWordRemembered) {
+      data.rememberedWords.splice(
+        data.indexWordRemembered,
+        1,
+        textBox.textContent,
+      );
+      data.indexWordRemembered = null; // empty the index
+      data.isEditingRem = false; // update the edit status in data
+    } else {
+      return;
+    }
   }
   // data.isEditing = false; // update the edit status in data
   textBox.contentEditable = 'false'; // change the attribute of the text box
