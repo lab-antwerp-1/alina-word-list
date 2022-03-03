@@ -1,3 +1,6 @@
+/* eslint-disable */
+// all add listeners have been moved to render list handlers.
+
 // import {
 //   // editItemHandler,
 //   confirmEditWithEnterHandler,
