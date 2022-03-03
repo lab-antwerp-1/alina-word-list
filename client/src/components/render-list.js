@@ -1,19 +1,41 @@
-import { editItemHandler } from '../handlers/edit-word.js';
+import {
+  editItemHandlerNew,
+  editItemHandlerRem,
+} from '../handlers/edit-word.js';
 
 /**
  * Render components to UI.
  *
  * @param {object} [data = {}] - An object which contain two word lists and a sort type.
+ * @param {string} [listToRender = ''] - A string indicates which table(s) to render.
  */
-export const renderList = (data) => {
+export const renderList = (data, listToRender = '') => {
+  // debugger;
+  switch (listToRender) {
+    case 'New':
+      renderListNew(data);
+      break;
+    case 'Rem':
+      renderListRem(data);
+      break;
+    default:
+      renderListNew(data);
+      renderListRem(data);
+  }
+};
+
+/**
+ * Render components of the New table on the UI.
+ *
+ * @param {object} [data = {}] - An object which contain two word lists and a sort type.
+ */
+const renderListNew = (data) => {
   // debugger;
   // get words to render
-  const toRenderNew = data.newWords;
-  const toRenderRemembered = data.rememberedWords;
 
-  // create table element for new list and remembered list
+  const toRenderNew = data.newWords;
+  // create table element for new list
   const tableElNew = document.createElement('table');
-  const tableElRemembered = document.createElement('table');
 
   // create components for new list
   for (const item of toRenderNew) {
@@ -41,14 +63,13 @@ export const renderList = (data) => {
     imgElNewForEdit.className = 'new-pen';
     imgElNewForTrash.className = 'new-trash';
     // add event listener for editing
-    imgElNewForEdit.addEventListener('click', editItemHandler);
+    imgElNewForEdit.addEventListener('click', editItemHandlerNew);
 
     // append to td
     tdElNewForCheck.appendChild(inputElNewForCheck); // check box
     tdElNewForLabel.appendChild(labelElNewForWord); // label with word
     tdElNewForEdit.appendChild(imgElNewForEdit); // pen icon
     tdElNewForTrash.appendChild(imgElNewForTrash); // trash icon
-
     // append to tr
     trElNew.appendChild(tdElNewForCheck);
     trElNew.appendChild(tdElNewForLabel);
@@ -57,6 +78,24 @@ export const renderList = (data) => {
     // append to table
     tableElNew.appendChild(trElNew);
   }
+
+  // clear container and append new tables to container
+  document.getElementById('new-list-container').innerHTML = '';
+  document.getElementById('new-list-container').appendChild(tableElNew);
+};
+
+/**
+ * Render components of the Rem table on the UI.
+ *
+ * @param {object} [data = {}] - An object which contain two word lists and a sort type.
+ */
+const renderListRem = (data) => {
+  // debugger;
+  // get words to render
+  const toRenderRemembered = data.rememberedWords;
+
+  // create table element for remembered list
+  const tableElRemembered = document.createElement('table');
 
   // create components for remembered list
   for (const ele of toRenderRemembered) {
@@ -84,14 +123,13 @@ export const renderList = (data) => {
     imgElRememberedForEdit.className = 'rem-pen';
     imgElRememberedForTrash.className = 'rem-trash';
     // add event listener for editing
-    imgElRememberedForEdit.addEventListener('click', editItemHandler);
+    imgElRememberedForEdit.addEventListener('click', editItemHandlerRem);
 
     // append to td
     tdElRememberedForCheck.appendChild(inputElRememberedForCheck); // check box
     tdElRememberedForLabel.appendChild(labelElRememberedForWord); // label with word
     tdElRememberedForEdit.appendChild(imgElRememberedForEdit); // pen icon
     tdElRememberedForTrash.appendChild(imgElRememberedForTrash); // trash icon
-
     // append to tr
     trElRemembered.appendChild(tdElRememberedForCheck);
     trElRemembered.appendChild(tdElRememberedForLabel);
@@ -102,9 +140,7 @@ export const renderList = (data) => {
   }
 
   // clear container and append new tables to container
-  document.getElementById('new-list-container').innerHTML = '';
   document.getElementById('remembered-list-container').innerHTML = '';
-  document.getElementById('new-list-container').appendChild(tableElNew);
   document
     .getElementById('remembered-list-container')
     .appendChild(tableElRemembered);

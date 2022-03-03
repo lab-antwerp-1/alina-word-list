@@ -8,7 +8,9 @@ export const data = {
   rememberedWords: [],
   sortType: 'oldest',
   // Below properties are for feature edit
-  isEditing: false,
+  // isEditing: false,
+  isEditingNew: false,
+  isEditingRem: false,
   indexWordNew: null,
   indexWordRemembered: null,
 };
