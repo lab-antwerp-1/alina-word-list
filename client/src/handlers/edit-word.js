@@ -1,9 +1,12 @@
 import { data } from '../../data.js';
 import { renderList } from '../components/render-list.js';
-import {
-  targetAtNewList,
-  targetAtRemList,
-} from '../logic/target-logic.js';
+import { targetAtNewList, targetAtRemList } from '../logic/target-logic.js';
+
+const messageHowToSave =
+  'After editing, click the pen icon beside or press Enter to save.';
+const messageTextBoxEmpty = 'Text box is empty!!';
+const messageConfirmEdit = 'Please confirm edits! ';
+const messageTextSaved = 'Text saved.';
 
 /**
  * Entry point for users edit a word on the New list.
@@ -36,8 +39,7 @@ export const editItemHandlerNew = (event) => {
     toEditLabelEl.focus(); // focus
     data.indexWordNew = data.newWords.indexOf(toEditLabelEl.innerText); // store the index of the text to data
     data.isEditingNew = true; // update the edit status in data
-    dynamicInstructions.innerText =
-      'After editing, click the pen icon beside or press Enter to save.'; // display instructions
+    dynamicInstructions.innerText = messageHowToSave; // display instructions
   } else {
     // is editing
     /* 2nd time click the same "pen" icon, confirm edits.
@@ -51,7 +53,7 @@ export const editItemHandlerNew = (event) => {
 
     /* wrong cases */
     if (indexClicked !== data.indexWordNew) {
-      warnings.innerText = 'Please confirm edits! ';
+      warnings.innerText = messageConfirmEdit;
       return;
     }
 
@@ -59,7 +61,7 @@ export const editItemHandlerNew = (event) => {
     const textBox = tr.children[1].children[0];
     if (textBox.textContent.length < 1) {
       // if text box is empty, send warning and return.
-      warnings.innerText = 'Text box is empty!!';
+      warnings.innerText = messageTextBoxEmpty;
       return;
     }
     // Text box not empty, save the text depending on different lists and empty variable index
@@ -68,7 +70,7 @@ export const editItemHandlerNew = (event) => {
     data.isEditingNew = false; // update the edit status in data
     textBox.contentEditable = 'false'; // change the attribute of the text box
     textBox.style.backgroundColor = ''; // restore the default background color
-    dynamicInstructions.innerText = 'Text saved'; // display confirmation
+    dynamicInstructions.innerText = messageTextSaved; // display confirmation
     /* -- re-render UI -- */
     renderList(data, 'New');
   } // end of else of if (!data.isEditing)
@@ -107,8 +109,7 @@ export const editItemHandlerRem = (event) => {
       toEditLabelEl.innerText,
     ); // store the index of the text to data
     data.isEditingRem = true; // update the edit status in data
-    dynamicInstructions.innerText =
-      'After editing, click the pen icon beside or press Enter to save.'; // display instructions
+    dynamicInstructions.innerText = messageHowToSave; // display instructions
   } else {
     // is editing
     /* 2nd time click the same "pen" icon, confirm edits.
@@ -122,7 +123,7 @@ export const editItemHandlerRem = (event) => {
 
     /* wrong cases */
     if (indexClicked !== data.indexWordRemembered) {
-      warnings.innerText = 'Please confirm edits! ';
+      warnings.innerText = messageConfirmEdit;
       return;
     }
 
@@ -130,7 +131,7 @@ export const editItemHandlerRem = (event) => {
     const textBox = tr.children[1].children[0];
     if (textBox.textContent.length < 1) {
       // if text box is empty, send warning and return.
-      warnings.innerText = 'Text box is empty!!';
+      warnings.innerText = messageTextBoxEmpty;
       return;
     }
     // Text box not empty, save the text depending on different lists and empty variable index
@@ -139,7 +140,7 @@ export const editItemHandlerRem = (event) => {
     data.isEditingRem = false; // update the edit status in data
     textBox.contentEditable = 'false'; // change the attribute of the text box
     textBox.style.backgroundColor = ''; // restore the default background color
-    dynamicInstructions.innerText = 'Text saved'; // display confirmation
+    dynamicInstructions.innerText = messageTextSaved; // display confirmation
     /* -- re-render UI -- */
     renderList(data, 'Rem');
   } // end of else of if (!data.isEditing)
@@ -186,7 +187,7 @@ export const confirmEditWithEnterHandler = (event) => {
   const textBox = t;
   if (textBox.textContent.length < 1) {
     // if text box is empty, send warning and return.
-    warnings.innerText = 'Text box is empty!!';
+    warnings.innerText = messageTextBoxEmpty;
     return;
   }
   // Text box is not empty.
@@ -207,7 +208,7 @@ export const confirmEditWithEnterHandler = (event) => {
   // data.isEditing = false; // update the edit status in data
   textBox.contentEditable = 'false'; // change the attribute of the text box
   textBox.style.backgroundColor = ''; // restore the default background color
-  dynamicInstructions.innerText = 'Text saved'; // display confirmation
+  dynamicInstructions.innerText = messageTextSaved; // display confirmation
 
   /* -- re-render UI -- */
   // renderList(data);

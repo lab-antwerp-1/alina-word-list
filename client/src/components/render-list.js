@@ -4,27 +4,6 @@ import {
 } from '../handlers/edit-word.js';
 
 /**
- * Render components to UI.
- *
- * @param {object} [data = {}] - An object which contain two word lists and a sort type.
- * @param {string} [listToRender = ''] - A string indicates which table(s) to render.
- */
-export const renderList = (data, listToRender = '') => {
-  // debugger;
-  switch (listToRender) {
-    case 'New':
-      renderListNew(data);
-      break;
-    case 'Rem':
-      renderListRem(data);
-      break;
-    default:
-      renderListNew(data);
-      renderListRem(data);
-  }
-};
-
-/**
  * Render components of the New table on the UI.
  *
  * @param {object} [data = {}] - An object which contain two word lists and a sort type.
@@ -144,4 +123,25 @@ const renderListRem = (data) => {
   document
     .getElementById('remembered-list-container')
     .appendChild(tableElRemembered);
+};
+
+/**
+ * Render components to UI.
+ *
+ * @param {object} [data = {}] - An object which contain two word lists and a sort type.
+ * @param {string} [listToRender = ''] - A string indicates which table(s) to render.
+ */
+export const renderList = (data, listToRender = '') => {
+  // debugger;
+  switch (listToRender) {
+    case 'New':
+      renderListNew(data);
+      break;
+    case 'Rem':
+      renderListRem(data);
+      break;
+    default:
+      renderListNew(data);
+      renderListRem(data);
+  }
 };
