@@ -1,5 +1,12 @@
+/* eslint-disable */
 import { data } from '../../data.js';
 import { renderList } from '../components/render-list.js';
+import {
+  targetAtNewList,
+  targetAtNewPen,
+  targetAtRemList,
+  targetAtRemPen,
+} from '../logic/target-logic.js';
 
 const stringWarnings = 'warnings';
 const stringInstructions = 'dynamic-instructions';
@@ -10,13 +17,13 @@ const messageConfirmEdit = 'Please confirm edits! ';
 const messageTextSaved = 'Text saved.';
 
 /**
- * Entry point for users edit a word on the New list.
- * It is called each time the user clicks the "pen" button.
+ * Utility function of the handler of below event.
+ * The user clicks the "pen" button.
  *
  * @param {Event} event - The event triggered when the user clicks the button.
  */
 
-export const editItemHandlerNew = (event) => {
+const editItemHandlerNew = (event) => {
   /* -- entry point for editing and confirm editing a word in the lists of words -- */
   // debugger;
 
@@ -78,13 +85,13 @@ export const editItemHandlerNew = (event) => {
 };
 
 /**
- * Entry point for users edit a word on the Rem list.
- * It is called each time the user clicks the "pen" button.
+ * Utility function of the handler of below event.
+ * The user clicks the "pen" button.
  *
  * @param {Event} event - The event triggered when the user clicks the button.
  */
 
-export const editItemHandlerRem = (event) => {
+const editItemHandlerRem = (event) => {
   /* -- entry point for editing and confirm editing a word in the lists of words -- */
   // debugger;
 
@@ -147,15 +154,37 @@ export const editItemHandlerRem = (event) => {
   } // end of else of if (!data.isEditing)
 };
 
-// edit handler: confirm edits with Enter key for New list
+// edit handler: edit label by clicking the pen icon
 /**
- * Entry point for users confirm edits on the list.
- * It is called each time the user press Enter key on label element.
+ * Entry point for users edit a word on the list.
+ * It is called each time the user clicks the "pen" button.
+ *
+ * @param {Event} event - The event triggered when the user clicks the button.
+ */
+
+export const editItemHandler = (event) => {
+  /* -- entry point for editing and confirm editing a word in the lists of words -- */
+  // debugger;
+  const t = event.target;
+  /* -- check the target and handle respectively using the correct utility function -- */
+  if (targetAtNewPen(t)) {
+    editItemHandlerNew(event);
+    return;
+  }
+  if (targetAtRemPen(t)) {
+    editItemHandlerRem(event);
+    return;
+  }
+};
+
+/**
+ * Utility function of the handler of below event.
+ * The user press Enter key on label element.
  *
  * @param {Event} event - The event triggered when the user press Enter key on label element.
  */
 
-export const confirmEditWithEnterHandlerNew = (event) => {
+const confirmEditWithEnterHandlerNew = (event) => {
   /* -- entry point for editing and confirm editing a word -- */
   // debugger;
   /* -- check the target -- */
@@ -211,13 +240,13 @@ export const confirmEditWithEnterHandlerNew = (event) => {
 
 // edit handler: confirm edits with Enter key for Rem list
 /**
- * Entry point for users confirm edits on the list.
- * It is called each time the user press Enter key on label element.
+ * Utility function of the handler of below event.
+ * The user press Enter key on label element.
  *
  * @param {Event} event - The event triggered when the user press Enter key on label element.
  */
 
-export const confirmEditWithEnterHandlerRem = (event) => {
+const confirmEditWithEnterHandlerRem = (event) => {
   /* -- entry point for editing and confirm editing a word -- */
   // debugger;
   /* -- check the target -- */
@@ -272,4 +301,27 @@ export const confirmEditWithEnterHandlerRem = (event) => {
   /* -- re-render UI -- */
   // renderList(data);
   renderList(data, 'Rem');
+};
+
+// edit handler: confirm edits with Enter key
+/**
+ * Entry point for users confirm edits on the list.
+ * It is called each time the user press Enter key on label element.
+ *
+ * @param {Event} event - The event triggered when the user press Enter key on label element.
+ */
+
+export const confirmEditWithEnterHandler = (event) => {
+  /* -- entry point for editing and confirm editing a word in the lists of words -- */
+  // debugger;
+  const t = event.target;
+  /* -- check the target and handle respectively using the correct utility function -- */
+  if (targetAtNewList(t)) {
+    confirmEditWithEnterHandlerNew(event);
+    return;
+  }
+  if (targetAtRemList(t)) {
+    confirmEditWithEnterHandlerRem(event);
+    return;
+  }
 };

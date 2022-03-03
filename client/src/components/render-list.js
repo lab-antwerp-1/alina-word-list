@@ -1,10 +1,4 @@
-import {
-  editItemHandlerNew,
-  editItemHandlerRem,
-  confirmEditWithEnterHandlerNew,
-  confirmEditWithEnterHandlerRem,
-} from '../handlers/edit-word.js';
-
+/* eslint-disable */
 /**
  * Render components of the New table on the UI.
  *
@@ -13,7 +7,6 @@ import {
 const renderListNew = (data) => {
   // debugger;
   // get words to render
-
   const toRenderNew = data.newWords;
   // create table element for new list
   const tableElNew = document.createElement('table');
@@ -32,15 +25,10 @@ const renderListNew = (data) => {
     inputElNewForCheck.type = 'checkbox';
     inputElNewForCheck.className = 'new-list-checkbox'; // set class name for check box of new list.
     const labelElNewForWord = document.createElement('label');
-    // const labelElNewForWord = document.createElement('input');
     labelElNewForWord.className = 'new-list-label'; // set class name of label for edit in new list.
     labelElNewForWord.innerText = item;
     labelElNewForWord.tabIndex = '-1';
-    // add event listener for Enter
-    labelElNewForWord.addEventListener(
-      'keydown',
-      confirmEditWithEnterHandlerNew,
-    );
+    // const inputNewForWord = document.createElement('input');
     // use img instead of icon
     const imgElNewForEdit = document.createElement('img');
     const imgElNewForTrash = document.createElement('img');
@@ -48,8 +36,6 @@ const renderListNew = (data) => {
     imgElNewForTrash.src = 'client/public/trash-2.png';
     imgElNewForEdit.className = 'new-pen';
     imgElNewForTrash.className = 'new-trash';
-    // add event listener for editing
-    imgElNewForEdit.addEventListener('click', editItemHandlerNew);
 
     // append to td
     tdElNewForCheck.appendChild(inputElNewForCheck); // check box
@@ -101,11 +87,6 @@ const renderListRem = (data) => {
     labelElRememberedForWord.className = 'rem-list-label'; // set class name of label for edit in remembered list.
     labelElRememberedForWord.innerText = ele;
     labelElRememberedForWord.tabIndex = '-1';
-    // add event listener for Enter
-    labelElRememberedForWord.addEventListener(
-      'keydown',
-      confirmEditWithEnterHandlerRem,
-    );
     // use img instead of icon
     const imgElRememberedForEdit = document.createElement('img');
     const imgElRememberedForTrash = document.createElement('img');
@@ -113,8 +94,6 @@ const renderListRem = (data) => {
     imgElRememberedForTrash.src = 'client/public/trash-2.png';
     imgElRememberedForEdit.className = 'rem-pen';
     imgElRememberedForTrash.className = 'rem-trash';
-    // add event listener for editing
-    imgElRememberedForEdit.addEventListener('click', editItemHandlerRem);
 
     // append to td
     tdElRememberedForCheck.appendChild(inputElRememberedForCheck); // check box

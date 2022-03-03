@@ -62,7 +62,7 @@ body {
 .move-to-remembered,
 .move-to-new {
   margin-left: 10px;
-  width: 150px;
+  width: 160px;
   height: 30px;
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 1%), 0 1px 1px rgb(0 0 0 / 5%);
   background: var(--vivid-cyan-blue);
