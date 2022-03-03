@@ -1,12 +1,7 @@
-/* eslint-disable */
-// all add listeners have been moved to render list handlers.
-
 import {
   editItemHandler,
   confirmEditWithEnterHandler,
 } from '../handlers/edit-word.js';
-
-// way 1:
 
 // edit a word on the list
 document

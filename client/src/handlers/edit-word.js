@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { data } from '../../data.js';
 import { renderList } from '../components/render-list.js';
 import {

@@ -1,4 +1,3 @@
-/* eslint-disable */
 /**
  * Render components of the New table on the UI.
  *
