@@ -1,7 +1,7 @@
-import {
-  // editItemHandler,
-  confirmEditWithEnterHandler,
-} from '../handlers/edit-word.js';
+// import {
+//   // editItemHandler,
+//   confirmEditWithEnterHandler,
+// } from '../handlers/edit-word.js';
 
 // way 1:
 
@@ -13,10 +13,10 @@ import {
 //   .getElementById('remembered-list-container')
 //   .addEventListener('click', editItemHandler);
 
-// confirm edits with Enter key
-document
-  .getElementById('new-list-container')
-  .addEventListener('keydown', confirmEditWithEnterHandler);
-document
-  .getElementById('remembered-list-container')
-  .addEventListener('keydown', confirmEditWithEnterHandler);
+// // confirm edits with Enter key
+// document
+//   .getElementById('new-list-container')
+//   .addEventListener('keydown', confirmEditWithEnterHandler);
+// document
+//   .getElementById('remembered-list-container')
+//   .addEventListener('keydown', confirmEditWithEnterHandler);

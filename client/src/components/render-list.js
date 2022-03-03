@@ -1,6 +1,8 @@
 import {
   editItemHandlerNew,
   editItemHandlerRem,
+  confirmEditWithEnterHandlerNew,
+  confirmEditWithEnterHandlerRem,
 } from '../handlers/edit-word.js';
 
 /**
@@ -34,6 +36,11 @@ const renderListNew = (data) => {
     labelElNewForWord.className = 'new-list-label'; // set class name of label for edit in new list.
     labelElNewForWord.innerText = item;
     labelElNewForWord.tabIndex = '-1';
+    // add event listener for Enter
+    labelElNewForWord.addEventListener(
+      'keydown',
+      confirmEditWithEnterHandlerNew,
+    );
     // use img instead of icon
     const imgElNewForEdit = document.createElement('img');
     const imgElNewForTrash = document.createElement('img');
@@ -94,6 +101,11 @@ const renderListRem = (data) => {
     labelElRememberedForWord.className = 'rem-list-label'; // set class name of label for edit in remembered list.
     labelElRememberedForWord.innerText = ele;
     labelElRememberedForWord.tabIndex = '-1';
+    // add event listener for Enter
+    labelElRememberedForWord.addEventListener(
+      'keydown',
+      confirmEditWithEnterHandlerRem,
+    );
     // use img instead of icon
     const imgElRememberedForEdit = document.createElement('img');
     const imgElRememberedForTrash = document.createElement('img');
