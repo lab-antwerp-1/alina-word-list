@@ -11,12 +11,13 @@ import { renderList } from '../components/render-list.js';
 export const removeWordHandler = (event) => {
   /* -- entry point for removing a word -- */
   // debugger;
+  const t = event.target;
   /* -- check the target -- */
   if (
-    event.target.className !== 'new-trash' &&
-    event.target.className !== 'rem-trash' &&
-    event.target.id !== 'new-remove-all' &&
-    event.target.id !== 'rem-remove-all'
+    t.className !== 'new-trash' &&
+    t.className !== 'rem-trash' &&
+    t.id !== 'new-remove-all' &&
+    t.id !== 'rem-remove-all'
   ) {
     return;
   }
@@ -27,25 +28,24 @@ export const removeWordHandler = (event) => {
   }
 
   // process user input, and get word to remove.
-  if (event.target.className === 'new-trash') {
-    const wordToRemove =
-      event.target.parentNode.parentNode.children[1].children[0].innerHTML;
+  const tr = t.parentNode.parentNode;
+  if (t.className === 'new-trash') {
+    const wordToRemove = tr.children[1].children[0].value;
     const indexOfWordToRemove = data.newWords.indexOf(wordToRemove);
     // update state
     data.newWords.splice(indexOfWordToRemove, 1);
   }
-  if (event.target.className === 'rem-trash') {
-    const wordToRemove =
-      event.target.parentNode.parentNode.children[1].children[0].innerHTML;
-    const indexOfWordToRemove = data.newWords.indexOf(wordToRemove);
+  if (t.className === 'rem-trash') {
+    const wordToRemove = tr.children[1].children[0].value;
+    const indexOfWordToRemove = data.rememberedWords.indexOf(wordToRemove);
     // update state
     data.rememberedWords.splice(indexOfWordToRemove, 1);
   }
-  if (event.target.id === 'new-remove-all') {
+  if (t.id === 'new-remove-all') {
     // update state
     data.newWords = [];
   }
-  if (event.target.id === 'rem-remove-all') {
+  if (t.id === 'rem-remove-all') {
     // update state
     data.rememberedWords = [];
   }

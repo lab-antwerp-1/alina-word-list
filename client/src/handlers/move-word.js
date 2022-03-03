@@ -20,8 +20,7 @@ export const moveItemHandler = (event) => {
       document.getElementsByClassName('new-list-checkbox'),
     ).filter((ele) => ele.checked);
     const itemsToMove = checkedNewBox.map(
-      (ele) =>
-        ele.parentElement.parentElement.children[1].children[0].innerHTML,
+      (ele) => ele.parentElement.parentElement.children[1].children[0].value,
     );
     // get rid of the checked items from new list, update data.
     data.newWords = data.newWords.filter((ele) => !itemsToMove.includes(ele));
@@ -35,8 +34,7 @@ export const moveItemHandler = (event) => {
       document.getElementsByClassName('rem-list-checkbox'),
     ).filter((ele) => ele.checked);
     const itemsToMove = checkedNewBox.map(
-      (ele) =>
-        ele.parentElement.parentElement.children[1].children[0].innerHTML,
+      (ele) => ele.parentElement.parentElement.children[1].children[0].value,
     );
     // get rid of the checked items from remembered list, update data.
     data.rememberedWords = data.rememberedWords.filter(

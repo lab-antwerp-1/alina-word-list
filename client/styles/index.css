@@ -193,7 +193,8 @@ body {
   /* for div */
 }
 
-.warning {
+.warning,
+.editing-warning {
   font-family: var(--paragraph-font);
   font-size: 1.5rem;
   color: red;
@@ -281,16 +282,19 @@ input[type='checkbox'] {
   /* for checkbox input */
 }
 
-.new-list-label,
-.rem-list-label {
-  border: 1px solid black;
-  width: 200px;
+.new-list-text,
+.rem-list-text {
   background-color: var(--color-gray-2);
-  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 15px;
+  width: 200px;
+  padding: 5px;
   margin-left: 10px;
-  float: left;
+  /* float: left; */
+  font-size: 1rem;
 
-  /* for label */
+  /* for text field */
 }
 
 .new-pen,

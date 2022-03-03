@@ -37,15 +37,16 @@ const editItemHandlerNew = (event) => {
   const dynamicInstructions = document.getElementById(stringInstructions);
   dynamicInstructions.innerText = '';
 
+  const tr = t.parentElement.parentElement; // tr
   if (!data.isEditingNew) {
     // not editing
     /* 1st time click "pen" icon */
 
-    const toEditLabelEl = t.parentElement.parentElement.children[1].children[0]; // get the specific label element
-    toEditLabelEl.contentEditable = 'true'; // set the label element editable
-    toEditLabelEl.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'; // change the background color
-    toEditLabelEl.focus(); // focus
-    data.indexWordNew = data.newWords.indexOf(toEditLabelEl.innerText); // store the index of the text to data
+    const textField = tr.children[1].children[0]; // get the text field
+    textField.disabled = false; // set to editable
+    textField.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'; // change the background color
+    textField.focus(); // focus
+    data.indexWordNew = data.newWords.indexOf(textField.value); // store the index of the text to data
     data.isEditingNew = true; // update the edit status in data
     dynamicInstructions.innerText = messageHowToSave; // display instructions
   } else {
@@ -55,7 +56,6 @@ const editItemHandlerNew = (event) => {
       update the edit status in data, disable the label content editable, 
       and re-render UI */
 
-    const tr = t.parentElement.parentElement; // tr
     const table = tr.parentElement; // table
     const indexClicked = Array.from(table.children).indexOf(tr); // the index clicked
 
@@ -66,18 +66,18 @@ const editItemHandlerNew = (event) => {
     }
 
     /* correct case */
-    const textBox = tr.children[1].children[0];
-    if (textBox.textContent.length < 1) {
-      // if text box is empty, send warning and return.
+    const textField = tr.children[1].children[0]; // get the text field
+    if (textField.value.length < 1) {
+      // if text field is empty, send warning and return.
       warnings.innerText = messageTextBoxEmpty;
       return;
     }
     // Text box not empty, save the text depending on different lists and empty variable index
-    data.newWords.splice(indexClicked, 1, textBox.textContent);
+    data.newWords.splice(indexClicked, 1, textField.value);
     data.indexWordNew = null;
     data.isEditingNew = false; // update the edit status in data
-    textBox.contentEditable = 'false'; // change the attribute of the text box
-    textBox.style.backgroundColor = ''; // restore the default background color
+    textField.disabled = true; // disable the text field
+    textField.style.backgroundColor = ''; // restore the default background color
     dynamicInstructions.innerText = messageTextSaved; // display confirmation
     /* -- re-render UI -- */
     renderList(data, 'New');
@@ -105,17 +105,16 @@ const editItemHandlerRem = (event) => {
   const dynamicInstructions = document.getElementById(stringInstructions);
   dynamicInstructions.innerText = '';
 
+  const tr = t.parentElement.parentElement; // tr
   if (!data.isEditingRem) {
     // not editing
     /* 1st time click "pen" icon */
 
-    const toEditLabelEl = t.parentElement.parentElement.children[1].children[0]; // get the specific label element
-    toEditLabelEl.contentEditable = 'true'; // set the label element editable
-    toEditLabelEl.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'; // change the background color
-    toEditLabelEl.focus(); // focus
-    data.indexWordRemembered = data.rememberedWords.indexOf(
-      toEditLabelEl.innerText,
-    ); // store the index of the text to data
+    const textField = tr.children[1].children[0]; // get the text field
+    textField.disabled = false; // set to editable
+    textField.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'; // change the background color
+    textField.focus(); // focus
+    data.indexWordRemembered = data.rememberedWords.indexOf(textField.value); // store the index of the text to data
     data.isEditingRem = true; // update the edit status in data
     dynamicInstructions.innerText = messageHowToSave; // display instructions
   } else {
@@ -125,7 +124,6 @@ const editItemHandlerRem = (event) => {
       update the edit status in data, disable the label content editable, 
       and re-render UI */
 
-    const tr = t.parentElement.parentElement; // tr
     const table = tr.parentElement; // table
     const indexClicked = Array.from(table.children).indexOf(tr); // the index clicked
 
@@ -136,18 +134,18 @@ const editItemHandlerRem = (event) => {
     }
 
     /* correct case */
-    const textBox = tr.children[1].children[0];
-    if (textBox.textContent.length < 1) {
-      // if text box is empty, send warning and return.
+    const textField = tr.children[1].children[0];
+    if (textField.value.length < 1) {
+      // if text field is empty, send warning and return.
       warnings.innerText = messageTextBoxEmpty;
       return;
     }
     // Text box not empty, save the text depending on different lists and empty variable index
-    data.rememberedWords.splice(indexClicked, 1, textBox.textContent);
+    data.rememberedWords.splice(indexClicked, 1, textField.value);
     data.indexWordRemembered = null;
     data.isEditingRem = false; // update the edit status in data
-    textBox.contentEditable = 'false'; // change the attribute of the text box
-    textBox.style.backgroundColor = ''; // restore the default background color
+    textField.disabled = true; // disable the text field
+    textField.style.backgroundColor = ''; // restore the default background color
     dynamicInstructions.innerText = messageTextSaved; // display confirmation
     /* -- re-render UI -- */
     renderList(data, 'Rem');
@@ -207,7 +205,7 @@ const confirmEditWithEnterHandlerNew = (event) => {
   const t = event.target;
 
   /* -- check the target -- */
-  // target will be a label (i.e. text box)
+  // target will be a label (i.e. text field)
 
   /* declare global variable for: warning and dynamic instructions */
   const warnings = document.getElementById(stringWarnings);
@@ -216,27 +214,26 @@ const confirmEditWithEnterHandlerNew = (event) => {
   dynamicInstructions.innerText = '';
 
   /* correct case */
-  const textBox = t;
-  if (textBox.textContent.length < 1) {
-    // if text box is empty, send warning and return.
+  const textField = t;
+  if (textField.value.length < 1) {
+    // if text field is empty, send warning and return.
     warnings.innerText = messageTextBoxEmpty;
     return;
   }
-  // Text box is not empty.
+  // Text field is not empty.
   // Save the text depending on different lists and empty variable index
-  const tr = t.parentElement.parentElement; // tr
+  const tr = textField.parentElement.parentElement; // tr
   const table = tr.parentElement; // table
   const indexTargeted = Array.from(table.children).indexOf(tr); // the index clicked
   if (indexTargeted !== data.indexWordNew) {
     warnings.innerText = messageConfirmEdit;
     return;
   }
-  data.newWords.splice(data.indexWordNew, 1, textBox.textContent);
+  data.newWords.splice(data.indexWordNew, 1, textField.value);
   data.indexWordNew = null; // empty the index
   data.isEditingNew = false; // update the edit status in data
-  // data.isEditing = false; // update the edit status in data
-  textBox.contentEditable = 'false'; // change the attribute of the text box
-  textBox.style.backgroundColor = ''; // restore the default background color
+  textField.disabled = true; // disable the text field
+  textField.style.backgroundColor = ''; // restore the default background color
   dynamicInstructions.innerText = messageTextSaved; // display confirmation
 
   /* -- re-render UI -- */
@@ -269,7 +266,7 @@ const confirmEditWithEnterHandlerRem = (event) => {
   const t = event.target;
 
   /* -- check the target -- */
-  // target will be a label (i.e. text box)
+  // target will be a label (i.e. text field)
   /* all the wrong cases */
 
   /* declare global variable for: warning and dynamic instructions */
@@ -279,15 +276,15 @@ const confirmEditWithEnterHandlerRem = (event) => {
   dynamicInstructions.innerText = '';
 
   /* correct case */
-  const textBox = t;
-  if (textBox.textContent.length < 1) {
-    // if text box is empty, send warning and return.
+  const textField = t;
+  if (textField.value.length < 1) {
+    // if text field is empty, send warning and return.
     warnings.innerText = messageTextBoxEmpty;
     return;
   }
-  // Text box is not empty.
+  // Text field is not empty.
   // Save the text depending on different lists and empty variable index
-  const tr = t.parentElement.parentElement; // tr
+  const tr = textField.parentElement.parentElement; // tr
   const table = tr.parentElement; // table
   const indexTargeted = Array.from(table.children).indexOf(tr); // the index clicked
   // wrong cases
@@ -296,12 +293,11 @@ const confirmEditWithEnterHandlerRem = (event) => {
     return;
   }
   // correct case
-  data.rememberedWords.splice(data.indexWordRemembered, 1, textBox.textContent);
+  data.rememberedWords.splice(data.indexWordRemembered, 1, textField.value);
   data.indexWordRemembered = null; // empty the index
   data.isEditingRem = false; // update the edit status in data
-  // data.isEditing = false; // update the edit status in data
-  textBox.contentEditable = 'false'; // change the attribute of the text box
-  textBox.style.backgroundColor = ''; // restore the default background color
+  textField.disabled = true; // disable the text field
+  textField.style.backgroundColor = ''; // restore the default background color
   dynamicInstructions.innerText = messageTextSaved; // display confirmation
 
   /* -- re-render UI -- */

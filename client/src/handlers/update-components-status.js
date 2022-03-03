@@ -17,7 +17,7 @@ export const updateComponentsState = (data) => {
   buttonToNew.disabled = isDisabled;
   buttonToRem.disabled = isDisabled;
   // display a warning message
-  const messageBox = document.getElementById('warnings');
+  const messageBox = document.getElementById('editing-warning');
   const message =
     'Editing mode: all buttons except pens disabled! You must confirm edits first :(';
   messageBox.innerHTML = isDisabled ? message : '';
