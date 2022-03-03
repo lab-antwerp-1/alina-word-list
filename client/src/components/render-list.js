@@ -5,6 +5,7 @@
  */
 const renderListNew = (data) => {
   // debugger;
+
   // get words to render
   const toRenderNew = data.newWords;
   // create table element for new list

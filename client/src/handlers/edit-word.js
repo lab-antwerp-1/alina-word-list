@@ -6,6 +6,7 @@ import {
   targetAtRemList,
   targetAtRemPen,
 } from '../logic/target-logic.js';
+import { updateComponentsState } from '../logic/update-components-status.js';
 
 const stringWarnings = 'warnings';
 const stringInstructions = 'dynamic-instructions';
@@ -164,16 +165,22 @@ const editItemHandlerRem = (event) => {
 export const editItemHandler = (event) => {
   /* -- entry point for editing and confirm editing a word in the lists of words -- */
   // debugger;
+
   const t = event.target;
+
   /* -- check the target and handle respectively using the correct utility function -- */
+  if (!targetAtNewPen(t) && !targetAtRemPen(t)) {
+    return;
+  }
+
   if (targetAtNewPen(t)) {
     editItemHandlerNew(event);
-    return;
-  }
-  if (targetAtRemPen(t)) {
+  } else {
     editItemHandlerRem(event);
-    return;
   }
+
+  // update the state of buttons and select
+  updateComponentsState(data);
 };
 
 /**
@@ -314,13 +321,17 @@ export const confirmEditWithEnterHandler = (event) => {
   /* -- entry point for editing and confirm editing a word in the lists of words -- */
   // debugger;
   const t = event.target;
+
   /* -- check the target and handle respectively using the correct utility function -- */
+  if (!targetAtNewList(t) && !targetAtRemList(t)) {
+    return;
+  }
   if (targetAtNewList(t)) {
     confirmEditWithEnterHandlerNew(event);
-    return;
-  }
-  if (targetAtRemList(t)) {
+  } else {
     confirmEditWithEnterHandlerRem(event);
-    return;
   }
+
+  // update the state of buttons and select
+  updateComponentsState(data);
 };

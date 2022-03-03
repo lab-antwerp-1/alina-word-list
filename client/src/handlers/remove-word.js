@@ -21,6 +21,11 @@ export const removeWordHandler = (event) => {
     return;
   }
 
+  // in editing mode, remove is disabled
+  if (data.isEditingNew || data.isEditingRem) {
+    return;
+  }
+
   // process user input, and get word to remove.
   if (event.target.className === 'new-trash') {
     const wordToRemove =

@@ -96,6 +96,10 @@ body {
   /* for btn hover: add/remembered/overlooked */
 }
 
+/* input[disabled = "true"] {
+  background-color: var(--color-gray-9);
+} */
+
 /* style general -end */
 
 /* style intro section - start */
@@ -183,6 +187,7 @@ body {
 /* style dynamic intro section - start */
 .dynamic-intro-container {
   height: 80px;
+  line-height: 1.5;
   text-align: center;
 
   /* for div */
