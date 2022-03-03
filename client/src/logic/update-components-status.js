@@ -11,7 +11,7 @@ export const updateComponentsState = (data) => {
   const buttonAdd = document.getElementById('add');
   const buttonToRem = document.getElementById('remembered-button');
   const buttonToNew = document.getElementById('overlooked-button');
-  let isDisabled = data.isEditingNew || data.isEditingRem ? true : false;
+  const isDisabled = data.isEditingNew || data.isEditingRem;
   menuSelect.disabled = isDisabled;
   buttonAdd.disabled = isDisabled;
   buttonToNew.disabled = isDisabled;
@@ -19,6 +19,6 @@ export const updateComponentsState = (data) => {
   // display a warning message
   const messageBox = document.getElementById('warnings');
   const message =
-    'Editing mode: all buttons are disabled! You must confirm edits first :(';
+    'Editing mode: all buttons except pens disabled! You must confirm edits first :(';
   messageBox.innerHTML = isDisabled ? message : '';
 };
