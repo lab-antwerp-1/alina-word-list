@@ -413,9 +413,7 @@ input[type='checkbox'] {
 }
 
 /* Mobile */
-@media (max-width: 500px) {
 
-  /* no for this project */
-}
+/* @media (max-width: 500px) {} */
 
-/* style media - end*/
+/* style media - end */
