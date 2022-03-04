@@ -1,7 +1,7 @@
 /* eslint-disable */
-import { data } from '../../data.js';
-import { sortStrings } from '../logic/sort-strings.js';
-import { renderList } from '../components/render-list.js';
+// import { data } from '../../data.js';
+// import { sortStrings } from '../logic/sort-strings.js';
+// import { renderList } from '../components/render-list.js';
 
 /**
  * Entry point for users sorting the list of words in this app.

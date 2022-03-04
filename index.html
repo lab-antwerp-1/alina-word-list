@@ -7,6 +7,10 @@
     <title>Word mnemonic device</title>
 
     <link href="./client/styles/index.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/26780e6d23.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div id="root">
@@ -37,10 +41,25 @@
       <div class="list-container">
         <div class="new-list">
           <h3>New List</h3>
+          <input
+            type="button"
+            value="remembered"
+            class="move-to-remenbered"
+            id="new-button"
+          />
+          <i class="fa-solid fa-trash-can" id="new-remove-all"></i>
           <div class="new-list-container" id="new-list-container"></div>
         </div>
+
         <div class="remembered-list">
           <h3>remembered List</h3>
+          <input
+            type="button"
+            value="overlooked"
+            class="move-to-new"
+            id="new-button"
+          />
+          <i class="fa-solid fa-trash-can" id="rem-remove-all"></i>
           <div
             class="remembered-list-container"
             id="remembered-list-container"

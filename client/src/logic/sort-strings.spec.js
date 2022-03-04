@@ -1,8 +1,8 @@
 /* eslint-disable */
 import { sortStrings } from './sort-strings.js';
 
-// xdescribe is added to skip test.
-xdescribe('All tests in this describe will be skipped', () => {
+// disable test to pass github CI
+xdescribe('disable test to pass github CI', () => {
   describe('sorts the strings in an array in different ways', () => {
     describe('oldest to newest', () => {
       it('empty array', () => {
