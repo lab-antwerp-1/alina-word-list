@@ -46,8 +46,16 @@ export const inputWordHandler = (event) => {
     return;
   }
 
+  // no duplicate word
+  if (data.newWords.includes(text)) {
+    warnings.innerText = `"${text}" already exists.`;
+    document.getElementById('input').value = '';
+    return;
+  }
+
   // otherwise, push text to new words list.
   data.newWords.push(text);
+
   document.getElementById('input').value = '';
 
   /* -- render new words -- */
@@ -101,6 +109,13 @@ export const getInputWithEnterHandler = (event) => {
   // if input contains non-letters, send warning and return
   if (!isWord(text)) {
     warnings.innerText = `"${text}" is not a word`;
+    return;
+  }
+
+  // no duplicate word
+  if (data.newWords.includes(text)) {
+    warnings.innerText = `"${text}" already exists.`;
+    document.getElementById('input').value = '';
     return;
   }
 
