@@ -53,3 +53,61 @@ export const inputWordHandler = (event) => {
   /* -- render new words -- */
   renderList(data);
 };
+
+// 2nd handler
+/**
+ * Entry point for users add word to list.
+ * It is called each time the user press the "Enter" key.
+ *
+ * @param {Event} event - The event triggered when press the "Enter" key.
+ */
+
+export const getInputWithEnterHandler = (event) => {
+  /* -- entry point for add a word to list -- */
+  // debugger;
+
+  /* -- check the target -- */
+  if (event.target.id !== 'input' || event.key !== 'Enter') {
+    return;
+  }
+
+  /* -- disable the default event only for tag INPUT -- */
+  if (event.target.nodeName === 'INPUT') {
+    event.preventDefault();
+  }
+
+  /* -- gather user input from DOM -- */
+  const text = document.getElementById('input').value;
+
+  /* -- use the input and data to implement the user story --
+
+    a user can add a new word to the list
+      given the input contains non-letters,
+        it will not be added
+        a warning is displayed
+      given the input contains only letters
+        it will be added to the words list
+        the list will be re-rendered
+  */
+  const warnings = document.getElementById('warnings');
+  warnings.innerText = '';
+
+  // if input box is empty, send warning and return.
+  if (text.length === 0) {
+    warnings.innerText = 'Please enter a word';
+    return;
+  }
+
+  // if input contains non-letters, send warning and return
+  if (!isWord(text)) {
+    warnings.innerText = `"${text}" is not a word`;
+    return;
+  }
+
+  // otherwise, push text to new words list.
+  data.newWords.push(text);
+  document.getElementById('input').value = '';
+
+  /* -- render new words -- */
+  renderList(data);
+};
