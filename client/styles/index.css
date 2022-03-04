@@ -293,7 +293,6 @@ input[type='checkbox'] {
   width: 200px;
   padding: 5px;
   margin-left: 10px;
-  /* float: left; */
   font-size: 1rem;
 
   /* for text field */
@@ -415,6 +414,7 @@ input[type='checkbox'] {
 
 /* Mobile */
 @media (max-width: 500px) {
+
   /* no for this project */
 }
 
