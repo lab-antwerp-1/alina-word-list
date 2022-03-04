@@ -1,7 +1,7 @@
 /**
  * Render components of the New table on the UI.
  *
- * @param {object} [data = {}] - An object which contain two word lists and a sort type.
+ * @param {object} [data = {}] - An object which contain word lists, sort type and other variables.
  */
 const renderListNew = (data) => {
   // debugger;
@@ -16,7 +16,7 @@ const renderListNew = (data) => {
     // create tr and td
     const trElNew = document.createElement('tr');
     const tdElNewForCheck = document.createElement('td');
-    const tdElNewForLabel = document.createElement('td');
+    const tdElNewForInput = document.createElement('td');
     const tdElNewForEdit = document.createElement('td');
     const tdElNewForTrash = document.createElement('td');
 
@@ -40,12 +40,12 @@ const renderListNew = (data) => {
 
     // append to td
     tdElNewForCheck.appendChild(inputElNewForCheck); // check box
-    tdElNewForLabel.appendChild(inputElNewForTextField); // text field with word
+    tdElNewForInput.appendChild(inputElNewForTextField); // text field with word
     tdElNewForEdit.appendChild(imgElNewForEdit); // pen icon
     tdElNewForTrash.appendChild(imgElNewForTrash); // trash icon
     // append to tr
     trElNew.appendChild(tdElNewForCheck);
-    trElNew.appendChild(tdElNewForLabel);
+    trElNew.appendChild(tdElNewForInput);
     trElNew.appendChild(tdElNewForEdit);
     trElNew.appendChild(tdElNewForTrash);
     // append to table
@@ -60,7 +60,7 @@ const renderListNew = (data) => {
 /**
  * Render components of the Rem table on the UI.
  *
- * @param {object} [data = {}] - An object which contain two word lists and a sort type.
+ * @param {object} [data = {}] - An object which contain word lists, sort type and other variables.
  */
 const renderListRem = (data) => {
   // debugger;
@@ -75,7 +75,7 @@ const renderListRem = (data) => {
     // create tr and td
     const trElRemembered = document.createElement('tr');
     const tdElRememberedForCheck = document.createElement('td');
-    const tdElRememberedForLabel = document.createElement('td');
+    const tdElRememberedForInput = document.createElement('td');
     const tdElRememberedForEdit = document.createElement('td');
     const tdElRememberedForTrash = document.createElement('td');
 
@@ -99,12 +99,12 @@ const renderListRem = (data) => {
 
     // append to td
     tdElRememberedForCheck.appendChild(inputElRememberedForCheck); // check box
-    tdElRememberedForLabel.appendChild(inputElRemForTextField); // text field with word
+    tdElRememberedForInput.appendChild(inputElRemForTextField); // text field with word
     tdElRememberedForEdit.appendChild(imgElRememberedForEdit); // pen icon
     tdElRememberedForTrash.appendChild(imgElRememberedForTrash); // trash icon
     // append to tr
     trElRemembered.appendChild(tdElRememberedForCheck);
-    trElRemembered.appendChild(tdElRememberedForLabel);
+    trElRemembered.appendChild(tdElRememberedForInput);
     trElRemembered.appendChild(tdElRememberedForEdit);
     trElRemembered.appendChild(tdElRememberedForTrash);
     // append to table
@@ -121,7 +121,7 @@ const renderListRem = (data) => {
 /**
  * Render components to UI.
  *
- * @param {object} [data = {}] - An object which contain two word lists and a sort type.
+ * @param {object} [data = {}] - An object which contain word lists, sort type and other variables.
  * @param {string} [listToRender = ''] - A string indicates which table(s) to render.
  */
 export const renderList = (data, listToRender = '') => {

@@ -1,165 +1,323 @@
-# Word List - development strategy
-This is an individual project to practice working on a full HTML/CSS/JS website. The project is to build an app in witch user can add words to a list and sort the list with 6 options.
+# Word Mnemonic Device  - development strategy version 2
 
-## Setup
+This is an individual project to practice working on a full HTML/CSS/JS website. 
+The project is to build an app in witch user can add word, remove word, edit word, sort words.
 
-<!-- what code do you need just to open the project? this might include:
-  - boilerplate code (https://brandlitic.com/what-is-boilerplate-code/)
-  - loading program data
-  - rendering the initial user interface
--->
+## planning documents
 
-- [ ] `type:html`: There is a title of this app.
+> As a user/developer I can read a readme of the project and follow the development process.
 
-- [ ] `type: init`: 
+- [ ] there is a readme file
 
-  - [ ] Import `data` and `components`.
+- [ ] there is a constraints document
 
-  - [ ] Import all listener files so they can attach to the DOM. 
+- [ ] there is a backlog file
 
-  - [ ] Import any other code that executes when the document or window are ready.
+- [ ] there is a development strategy
 
-  - [ ] Render the initial list by calling function `renderList(data.words)`.
+- [ ] there is a retrospective
 
-- [ ] `type: data`:
+- this will be developed on the branch `planning`.
 
-  - [ ] Create an object named `data`.
+> As a user/developer I can follow the design process.
 
-  - [ ] @property {string[]} words - An array of words that the user has provided.
+- [ ] there is a mobile wireframe file
 
-  - [ ] @property {string} sort - A string indicating the order string should be displayed in the UI.
+- [ ] there is a desktop wireframe file
 
-  - [ ] `export` object `data`.
+- [ ] there is a figma document link
 
-## Word list
+- this will be developed on the branch `design`.
 
-> "As a user I want a word list so that I can see the words I've added."
-  > - There is a list to show every word the user has added. By default the word list is blank.
+## Must-Haves
 
-### Logic: Word list
+### 1. instruction
 
-- [ ] `type: components`: Write a function `renderList(toRender = [])` in /components. Convert each word element from an array to text in each `li`tag , and an `ul`tag wrap around all the `li`. `export` function.
+> a user can read instruction of this word list app.
 
-### Interface: Word list
+#### HTML 
+- [ ] title "Word Mnemonic Device"
+- [ ] a h1 tag "Word Mnemonic Device"
+- [ ] a p tag of some instruction
 
-- [ ] `type html`: A `div` with the id `list-container` to store rendered word list.
+#### CSS  
 
-### Interaction: Word list
+- [ ] styling to position the instruction section correctly and readably on the screen.
 
-- [ ] When the app just loaded, the word list is blank.
+- this will be developed on the branch `1-feature-intro`.
 
-## Add word
+### 2. add a word
 
-> "As a user I want a input field and a add button so that I can input and add a word to the list."
-  > - Given the input contains only letters it will be added to the words list, and the list will be re-rendered.
+> a user can add a new item to the list.  
+> a user can see the added word list.
 
-### Logic: Add word
 
-- [ ] `type: listeners`: Add listener `addEventListener('click', inputWord)` to `form` element with the id `input-form` in /listeners.
+#### HTML 
+- [ ] a form input field
+- [ ] a add button
+- [ ] a div with id `new-list` to display the word list
 
-- [ ] `type: handlers`: Write a function `inputWord(event)` in/handlers. It's an entry point for adding or removing a word. It is called each time the user clicks the "add word" or the "remove word" button. It gathers user input from DOM and then render new words by calling function `sortStrings(data.words, data.sort)` and `renderList(sorted)` to a `div` with the id `listContainer`. `export` function.
+#### CSS  
 
-- [ ] `type: logic`: Write a function `sortStrings(toSort = [], sortType = 'oldest')` in /logic. It will sort words depend on sort type option. `export` function.
+- [ ] styling to position the new field and button correctly in the form
 
-- [ ] `type: logic`: Write a function `isWord(text = '')` in /logic to check if the user input is a word. `export` function.
+#### Listeners
 
-- [ ] `type: components`: Write a function `renderList(toRender = [])` in render-list.js. Convert each word element from an array to text in each `li`tag , and an `ul`tag wrap around all the `li`. `export` function.
+- [ ] a listener connected to the "add" button, I'll try a "click" event first
 
-### Interface: Add word
+#### Handlers 
 
-- [ ] `type html`: A `form` tag with the id `input-form`.
+- [ ] one handler that takes the user input from the form and:
+  - [ ] validates it
+  - [ ] if it's valid:
+    - [ ] add it to the list in memory
+    - [ ] re-render the list in the UI
+  - [ ] if it's not valid:
+warns the user what is wrong with their input
 
-- [ ] `type html`: A `input` tag with `name="text" placeholder="new word"` as a form element.
+#### Utils  
 
-- [ ] `type html`: A `input` tag with `type="button" value="add"` as a form element.
+- [ ] a pure function that validates new list entries and returns either true or a message describing what is wrong
 
+#### Components 
 
-### Interaction: Add word
+- [ ] a component to render word list.
 
-- [ ] Given the input contains only letters it will be added to the words list, and the list will be re-rendered.
+- this will be developed on the branch `2-feature-add`.
 
-## Remove word
 
-> "As a user I want a remove button so that I can remove the word I don't like or want from the list."
-  > - Give a word and click remove button then the word removes from the list.
+### 3. remove a word
 
-### Logic: Remove word
+> a user can remove a word from the list.  
+> the list will be re-rendered.
 
-- [ ] Same as Add word. 
+#### HTML  
 
-### Interface: Remove word
+- [ ] an i tag for bin icon aside each word in the list
+- [ ] a "remove all" button aside add button
 
-- [ ] `type html`: A `form` tag with the id `input-form`.
+#### CSS  
 
-- [ ] `type html`: A `input` tag with `name="text" placeholder="new word"` as a form element.
+- [ ] styling to position the bin icon and "remove all" button correctly in the form
 
-- [ ] `type html`: A `input` tag with `type="button" value="remove"` as a form element.
+#### Listeners 
 
-### Interaction: Remove word
+- [ ] a listener connected to the "bin" icon, I'll try a "click" event first
+- [ ] a listener connected to the "remove all" button, I'll try a "click" event first
 
-- [ ] Given the input is in the list it is removed and the list is re-rendered.
+#### Handlers 
 
+- [ ] one handler that remove a word from the list and re-render the list in the UI
+- [ ] one handler that remove the entire list and re-render the list in the UI
 
-## Get warnings
+#### Utils  
 
-> "As a user I want to get warnings so that I know I did something wrong."
-  > - Give '123' and click add button then will get the warning: "123" is not a word.
-  > - If 'abc' has not added yet. Give 'abc' and click remove button then will get the warning: "abc" is not in the list.
+- [ ] none.
 
-### Logic: Get warnings
+#### Components  
 
-- [ ] `type: logic`: Write a function `isWord(text = '')` in /logic to check if the user input is a word. `export` function.
+- [ ] none. I can reuse the component from add a word to render word list.
 
-- [ ] `type: handlers`: 
-  - [ ] Write a function `inputWord(event)` in/handlers. It's an entry point for adding or removing a word. It is called each time the user clicks the "add word" or the "remove word" button. It gathers user input from DOM and then render new words by calling function `sortStrings(data.words, data.sort)` and `renderList(sorted)` to a `div` with the id `listContainer`. 
+- this will be developed on the branch `3-feature-remove`.
 
-  - [ ] Add a guard to check if user input is a word by calling function `isWord(text = '')`, if it isn't, post a warning `"${userInput}" is not a word`.
+### 4. sort words with options 
 
-  - [ ] Add a guard to check text, use `data.words.includes(text)`, if not, post a warning `"${text}" is not in the list`
+> a user can sort words with 6 options.  
+> select 'oldest' then will sort words from oldest to newest.  
+> select 'newest' then will sort words from newest to oldest.  
+> select 'shortest' then will sort words from shortest to longest.  
+> select 'longest' then will sort words from longest to shortest.  
+> select 'a' then will sort alphabetical order.  
+> select 'z' then will reverse alphabetical order.  
 
-  - [ ] `export` function. 
+#### HTML  
 
-### Interface: Get warnings
+- [ ] a `select` element with the name attribute "sort" to create a drop-down list.
+- [ ] 6 `option` tags inside the `select` element define the available options in the drop-down list.
 
-- [ ] `type:html`: a `code` tag with the id `warnings`, then assign the warning message to it's `innerText`.
+#### CSS  
 
-### Interaction: Get warnings
+- [ ] styling to position the drop-down list correctly on the screen
 
-- [ ]  Given the input contains non-letters, it will not be added a warning is displayed.
+#### Listeners 
 
-- [ ]  Given the input is not in the list a warning is posted.
+- [ ] a listener connected to the `select`, I'll try a "click" event first
 
+#### Handlers 
 
-## Sort words with options
+- [ ] one handler that sort the word list and re-render the list in the UI
 
-> "As a user I want to sort words with options."
-  > - Select 'oldest' then will sort words from oldest to newest.
-  > - Select 'newest' then will sort words from newest to oldest.
-  > - Select 'shortest' then will sort words from shortest to longest.
-  > - Select 'longest' then will sort words from longest to shortest.
-  > - Select 'a' then will sort alphabetical order.
-  > - Select 'z' then will reverse alphabetical order.
+#### Utils  
 
-### Logic: Sort words with options
+- [ ] none.
 
-- [ ] `type: listeners`: Add listener `addEventListener('change', sortWords)` to `select` element with the id `sort-type` in /listeners.
+#### Components 
 
-- [ ] `type: handlers`: Write a function `sortWords(event)` in /handlers. Entry point for users sorting the list of words in this app. It is called each time the input selection changes. It will read and process user input and render new words. Make a newly sorted list named `sorted` by calling function `sortStrings(data.words, data.sort)` and then pass it in `renderList(sorted)`, then use `.appendChild()` append the `ul` element to a `div` with the id `listContainer`. `export` function.
+- [ ] none. I can reuse the component from add a word to render word list.
 
-- [ ] `type: logic`: Write a function `sortStrings(toSort = [], sortType = 'oldest')` in /logic. It will sort words depend on sort type option. `export` function.
+- this will be developed on the branch `4-feature-sort`.
 
-- [ ] `type: components`: Write a function `renderList(toRender = [])` in render-list.js. Convert each word element from an array to text in each `li`tag , and an `ul`tag wrap around all the `li`. `export` function.
+## Should-Haves
 
-### Interface: Sort words with options
+> these will complete the user experience, but are not necessary
 
-- [ ] `type html`: A `div` tag with the id `root`, and with content `sort:`.
+### plus-1. move words between new list and remembered list
 
-- [ ] `type html`: A `select` tag with drop down list with options 'oldest', 'newest'...
+> a user can move words between `new list` and `remembered list`
 
-- [ ] `type html`: 6 `option` tags. Each tag have `value` from each option.
+#### HTML  
 
-  
-### Interaction: Sort words with options
+- [ ] one `div` element with the id `remembered-list` as container.
+- [ ] one `to remembered` button aside new words list
+- [ ] one `to new` button aside remembered words list
+- [ ] one checkbox aside each word.
 
-- [ ] If a user selects a sort type, the list will re-render. 
+#### CSS  
 
+- [ ] styling to position the two lists correctly on the screen
+
+#### Listeners 
+
+- [ ] a listener connected to the `checkbox`, I'll try a "click" event first
+
+#### Handlers 
+
+- [ ] one handler that move the word list and re-render the list in the UI
+
+#### Utils  
+
+- [ ] none.
+
+#### Components 
+
+- [ ] none. I can reuse the component from add a word to render word list.
+
+- this will be developed on the branch `plus-1-feature-move`.
+
+
+### 5. edit a word
+
+> a user can edit a word from the list.
+
+#### HTML  
+
+- [ ] an i tag for pen icon aside each word in the list
+
+#### CSS  
+
+- [ ] styling to position the pen icon correctly in the list
+
+#### Listeners 
+
+- [ ] a listener connected to the pen icon, I'll try a "click" event first
+
+#### Handlers 
+
+- [ ] one handler that print the specific word to input. (User can edit it and then add to word list. Finally click bin icon to remove the original word.)
+
+#### Utils  
+
+- [ ] none. 
+
+#### Components 
+
+- [ ] none. 
+
+- this will be developed on the branch `5-feature-edit`.
+
+### 6. colorful button
+> a user can easily identify add or remove button by color.
+> set the 'add' button to green.
+> set the 'remove all' button to red.
+
+#### HTML 
+
+- [ ] none. 
+
+#### CSS  
+
+- [ ] styling the 'add' and 'remove all' button
+
+#### Listeners 
+
+- [ ] none.
+
+#### Handlers 
+
+- [ ] none.
+
+#### Utils  
+
+- [ ] none.
+
+#### Components 
+
+- [ ] none.
+
+- this will be developed on the branch `6-feature-button-color`.
+
+### 7. use Enter key add
+> a user can add a word by press Enter key.
+
+#### HTML  
+
+- [ ] none.
+
+#### CSS  
+
+- [ ] none.
+
+#### Listeners 
+
+- [ ] a listener connected to the `input`, I'll try a `keydown` event first.
+
+#### Handlers 
+
+- [ ] a handler that add word to list and re-render the list in the UI
+
+#### Utils  
+
+- [ ] none.
+
+#### Components   
+
+- [ ] none. I can reuse the component from add a word to render word list.
+
+- this will be developed on the branch `7-feature-enter-key`.
+
+### 8. change font
+
+> a user can change word list font with option.
+
+#### HTML  
+
+- [ ] a `select` element with the name attribute "font" and id "font" to create a drop-down list.
+- [ ] 3 `option` tags inside the `select` element define the available options in the drop-down list.
+
+#### CSS  
+
+- [ ] a listener connected to the `select` with id "font", I'll try a "click" event first
+
+#### Handlers 
+
+- [ ] one handler that change the font of the word list and re-render the list in the UI
+
+#### Utils  
+
+- [ ] none.
+
+#### Components 
+
+- [ ] none.
+
+- this will be developed on the branch `8-feature-change-font`.
+
+## Could-Haves
+
+> would be really cool ... if there's
+
+### 9. share word list 
+> a user can share the word list on facebook, email.
+
+### 10. export word list
+> a user can export word list to a file.

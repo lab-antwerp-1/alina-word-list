@@ -2,8 +2,8 @@ import { data } from '../../data.js';
 import { renderList } from '../components/render-list.js';
 
 /**
- * Entry point for users move a words between the list.
- * It is called each time the user clicks the "remembered" or "overlooked" button.
+ * Entry point for users move words between the lists.
+ * It is called each time the user clicks the "to remembered" or "to new" button.
  *
  * @param {Event} event - The event triggered when the user clicks the button.
  */

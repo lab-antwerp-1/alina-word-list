@@ -152,7 +152,7 @@ const editItemHandlerRem = (event) => {
   } // end of else of if (!data.isEditing)
 };
 
-// edit handler: edit label by clicking the pen icon
+// edit handler: edit text field by clicking the pen icon
 /**
  * Entry point for users edit a word on the list.
  * It is called each time the user clicks the "pen" button.
@@ -183,9 +183,9 @@ export const editItemHandler = (event) => {
 
 /**
  * Utility function of the handler of below event.
- * The user press Enter key on label element.
+ * The user press Enter key on input element.
  *
- * @param {Event} event - The event triggered when the user press Enter key on label element.
+ * @param {Event} event - The event triggered when the user press Enter key on input element.
  */
 
 const confirmEditWithEnterHandlerNew = (event) => {
@@ -244,9 +244,9 @@ const confirmEditWithEnterHandlerNew = (event) => {
 // edit handler: confirm edits with Enter key for Rem list
 /**
  * Utility function of the handler of below event.
- * The user press Enter key on label element.
+ * The user press Enter key on input element.
  *
- * @param {Event} event - The event triggered when the user press Enter key on label element.
+ * @param {Event} event - The event triggered when the user press Enter key on input element.
  */
 
 const confirmEditWithEnterHandlerRem = (event) => {
