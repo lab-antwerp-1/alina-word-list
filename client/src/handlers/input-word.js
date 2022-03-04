@@ -10,7 +10,7 @@ import { renderList } from '../components/render-list.js';
  * @param {Event} event - The event triggered when the user clicks the button.
  */
 
-export const inputWord = (event) => {
+export const inputWordHandler = (event) => {
   /* -- entry point for adding or removing a word -- */
   // debugger;
   /* -- check the target -- */
@@ -45,6 +45,7 @@ export const inputWord = (event) => {
     warnings.innerText = `"${text}" is not a word`;
     return;
   }
+
   // otherwise, push text to new words list.
   data.newWords.push(text);
   document.getElementById('input').value = '';

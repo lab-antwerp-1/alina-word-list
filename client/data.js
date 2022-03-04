@@ -7,5 +7,5 @@
 export const data = {
   newWords: [],
   rememberedWords: [],
-  sort: 'oldest',
+  sortType: 'oldest',
 };
