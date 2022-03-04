@@ -15,59 +15,76 @@
   <body>
     <div id="root">
       <!-- intro section start -->
-      <header>
+      <header class="header">
         <h1>Word mnemonic device</h1>
         <p class="intro">
-          Hi, welcome. "Word mnemonic device" helps you remembering words. <br /><br />
-          It divides words into "new" and "remembered" list. You can add, remove, edit,
-          sort word... <br /><br />
-          Check the words from new words list and click remembered button, you
-          can move the words to remembered list. <br /><br />
-          Check the words from remembered list and click overlooked button, you
+          Hi, welcome. "Word mnemonic device" helps you remembering words.
+          <br />
+          It divides words into "new" and "remembered" lists. You can add,
+          remove, edit, sort word... <br />
+          Check the words from new words list and click button "to Remembered", you
+          can move the words to remembered list. <br />
+          Check the words from remembered list and click button "to New", you
           will move the words back to new words list. Have fun!
         </p>
       </header>
       <!-- intro section end -->
-      <!-- input section start -->
-      <form id="input-form">
-        <input name="text" placeholder="new word" id="input" />
-        <input type="button" value="add" id="add" />
-      </form>
-      <code id="warnings" class="warning"></code>
-      <!-- input section end -->
-      <!-- sort section start -->
-      <select id="sort-type">
-        <option value="oldest">old -> new</option>
-        <option value="newest">new -> old</option>
-        <option value="a">a -> z</option>
-        <option value="z">z -> a</option>
-        <option value="shortest">short -> long</option>
-        <option value="longest">long -> short</option>
-      </select>
-      <!-- sort section end -->
+      <div class="input-sort-container">
+        <!-- sort section start -->
+        <select id="sort-type">
+          <option value="oldest">old -> new</option>
+          <option value="newest">new -> old</option>
+          <option value="a">a -> z</option>
+          <option value="z">z -> a</option>
+          <option value="shortest">short -> long</option>
+          <option value="longest">long -> short</option>
+        </select>
+        <!-- sort section end -->
+        <!-- input section start -->
+        <form id="input-form">
+          <input name="text" placeholder="new word" id="input" />
+          <input type="button" value="add" id="add" class="btn" />
+        </form>
+        <!-- input section end -->
+      </div>
+      <!-- dynamic intro section start -->
+      <div class="dynamic-intro-container">
+        <code id="editing-warning" class="editing-warning"></code>
+        <code id="warnings" class="warning"></code>
+        <code id="dynamic-instructions" class="dynamic-instructions"></code>
+      </div>
+
+      <!-- dynamic intro section end -->
       <!-- list container section start -->
-      <div class="list-container">
+      <div class="list-container grid-container">
         <div class="new-list" id="new-list">
-          <h3>New List</h3>
-          <input
-            type="button"
-            value="remembered"
-            class="move-to-remenbered"
-            id="remembered-button"
-          />
-          <i class="fa-solid fa-trash-can" id="new-remove-all"></i>
+          <!-- <h3>New List</h3> -->
+          <div class="flex-container-new">
+            <h3>New List</h3>
+            <input
+              type="button"
+              value="to Remembered"
+              class="move-to-remembered"
+              id="remembered-button"
+            />
+            <i class="fa-solid fa-trash-can" id="new-remove-all"></i>
+          </div>
+
           <div class="new-list-container" id="new-list-container"></div>
         </div>
 
         <div class="remembered-list" id="remembered-list">
-          <h3>remembered List</h3>
-          <input
-            type="button"
-            value="overlooked"
-            class="move-to-new"
-            id="overlooked-button"
-          />
-          <i class="fa-solid fa-trash-can" id="rem-remove-all"></i>
+          <!-- <h3>remembered List</h3> -->
+          <div class="flex-container-rem">
+            <h3>Remembered List</h3>
+            <input
+              type="button"
+              value="to New"
+              class="move-to-new"
+              id="overlooked-button"
+            />
+            <i class="fa-solid fa-trash-can" id="rem-remove-all"></i>
+          </div>
           <div
             class="remembered-list-container"
             id="remembered-list-container"
@@ -75,9 +92,15 @@
         </div>
       </div>
       <!-- list container section end -->
-      <!-- footer start -->
-      <!-- footer end -->
     </div>
+    <!-- footer start -->
+    <footer class="footer">
+      <p class="footer-intro">Want to see the source code? Click!</p>
+      <a href="https://github.com/lab-antwerp-1/alina-word-list"
+        ><i class="fa-brands fa-github-square" id="github"></i
+      ></a>
+    </footer>
+    <!-- footer end -->
 
     <script type="module" src="./client/src/init/index.js"></script>
   </body>

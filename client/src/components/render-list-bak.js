@@ -1,15 +1,17 @@
 /**
- * Render components of the New table on the UI.
+ * Render components to UI.
  *
  * @param {object} [data = {}] - An object which contain two word lists and a sort type.
  */
-const renderListNew = (data) => {
+export const renderList = (data) => {
   // debugger;
-
   // get words to render
   const toRenderNew = data.newWords;
-  // create table element for new list
+  const toRenderRemembered = data.rememberedWords;
+
+  // create table element for new list and remembered list
   const tableElNew = document.createElement('table');
+  const tableElRemembered = document.createElement('table');
 
   // create components for new list
   for (const item of toRenderNew) {
@@ -24,12 +26,11 @@ const renderListNew = (data) => {
     const inputElNewForCheck = document.createElement('input');
     inputElNewForCheck.type = 'checkbox';
     inputElNewForCheck.className = 'new-list-checkbox'; // set class name for check box of new list.
-    const inputElNewForTextField = document.createElement('input');
-    inputElNewForTextField.type = 'text';
-    inputElNewForTextField.className = 'new-list-text'; // set class name of text field in new list.
-    inputElNewForTextField.disabled = true; // disable the text field at creation
-    inputElNewForTextField.value = item;
-
+    const labelElNewForWord = document.createElement('label');
+    // const labelElNewForWord = document.createElement('input');
+    labelElNewForWord.className = 'new-list-label'; // set class name of label for edit in new list.
+    labelElNewForWord.innerText = item;
+    labelElNewForWord.tabIndex = '-1';
     // use img instead of icon
     const imgElNewForEdit = document.createElement('img');
     const imgElNewForTrash = document.createElement('img');
@@ -40,9 +41,10 @@ const renderListNew = (data) => {
 
     // append to td
     tdElNewForCheck.appendChild(inputElNewForCheck); // check box
-    tdElNewForLabel.appendChild(inputElNewForTextField); // text field with word
+    tdElNewForLabel.appendChild(labelElNewForWord); // label with word
     tdElNewForEdit.appendChild(imgElNewForEdit); // pen icon
     tdElNewForTrash.appendChild(imgElNewForTrash); // trash icon
+
     // append to tr
     trElNew.appendChild(tdElNewForCheck);
     trElNew.appendChild(tdElNewForLabel);
@@ -52,26 +54,8 @@ const renderListNew = (data) => {
     tableElNew.appendChild(trElNew);
   }
 
-  // clear container and append new tables to container
-  document.getElementById('new-list-container').innerHTML = '';
-  document.getElementById('new-list-container').appendChild(tableElNew);
-};
-
-/**
- * Render components of the Rem table on the UI.
- *
- * @param {object} [data = {}] - An object which contain two word lists and a sort type.
- */
-const renderListRem = (data) => {
-  // debugger;
-  // get words to render
-  const toRenderRemembered = data.rememberedWords;
-
-  // create table element for remembered list
-  const tableElRemembered = document.createElement('table');
-
   // create components for remembered list
-  for (const item of toRenderRemembered) {
+  for (const ele of toRenderRemembered) {
     // create tr and td
     const trElRemembered = document.createElement('tr');
     const tdElRememberedForCheck = document.createElement('td');
@@ -83,12 +67,11 @@ const renderListRem = (data) => {
     const inputElRememberedForCheck = document.createElement('input');
     inputElRememberedForCheck.type = 'checkbox';
     inputElRememberedForCheck.className = 'rem-list-checkbox'; // set class name for check box of remembered list.
-    const inputElRemForTextField = document.createElement('input');
-    inputElRemForTextField.type = 'text';
-    inputElRemForTextField.className = 'rem-list-text'; // set class name of text field in new list.
-    inputElRemForTextField.disabled = true; // disable the text field at creation
-    inputElRemForTextField.value = item;
-
+    const labelElRememberedForWord = document.createElement('label');
+    // const labelElRememberedForWord = document.createElement('input');
+    labelElRememberedForWord.className = 'rem-list-label'; // set class name of label for edit in remembered list.
+    labelElRememberedForWord.innerText = ele;
+    labelElRememberedForWord.tabIndex = '-1';
     // use img instead of icon
     const imgElRememberedForEdit = document.createElement('img');
     const imgElRememberedForTrash = document.createElement('img');
@@ -99,9 +82,10 @@ const renderListRem = (data) => {
 
     // append to td
     tdElRememberedForCheck.appendChild(inputElRememberedForCheck); // check box
-    tdElRememberedForLabel.appendChild(inputElRemForTextField); // text field with word
+    tdElRememberedForLabel.appendChild(labelElRememberedForWord); // label with word
     tdElRememberedForEdit.appendChild(imgElRememberedForEdit); // pen icon
     tdElRememberedForTrash.appendChild(imgElRememberedForTrash); // trash icon
+
     // append to tr
     trElRemembered.appendChild(tdElRememberedForCheck);
     trElRemembered.appendChild(tdElRememberedForLabel);
@@ -112,29 +96,10 @@ const renderListRem = (data) => {
   }
 
   // clear container and append new tables to container
+  document.getElementById('new-list-container').innerHTML = '';
   document.getElementById('remembered-list-container').innerHTML = '';
+  document.getElementById('new-list-container').appendChild(tableElNew);
   document
     .getElementById('remembered-list-container')
     .appendChild(tableElRemembered);
-};
-
-/**
- * Render components to UI.
- *
- * @param {object} [data = {}] - An object which contain two word lists and a sort type.
- * @param {string} [listToRender = ''] - A string indicates which table(s) to render.
- */
-export const renderList = (data, listToRender = '') => {
-  // debugger;
-  switch (listToRender) {
-    case 'New':
-      renderListNew(data);
-      break;
-    case 'Rem':
-      renderListRem(data);
-      break;
-    default:
-      renderListNew(data);
-      renderListRem(data);
-  }
 };
