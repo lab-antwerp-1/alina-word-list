@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { data } from '../../data.js';
 import { sortStrings } from '../logic/sort-strings.js';
 import { renderList } from '../components/render-list.js';

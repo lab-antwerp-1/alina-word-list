@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { data } from '../../data.js';
 import { isWord } from '../logic/is-word.js';
 import { renderList } from '../components/render-list.js';

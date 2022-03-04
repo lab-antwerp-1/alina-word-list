@@ -1,4 +1,3 @@
-/* eslint-disable */
 /**
  * @property {string[]} newWords - An array of words that the user has provided.
  * @property {string[]} rememberedWords - An array of words that the user has moved from new words list.
