@@ -1,8 +1,9 @@
+/* eslint-disable */
 /**
  * Sorts an array of strings in different ways.
  * It does not modify the argument (no side-effects).
  *
- * @param {string[]} [toSort=''] - The array of strings to sort.
+ * @param {Array[]} [ toSort= [] ] - The array of strings to sort.
  * @param {string} [sortType='oldest'] - How to sort the strings, 6 options.
  * - oldest: from oldest to newest.
  * - newest: from newest to oldest.
@@ -16,4 +17,4 @@
  *
  * // ... write this!
  */
-export const sortStrings = () => {};
+export const sortStrings = (toSort = [], sortType = 'oldest') => {};
