@@ -41,8 +41,7 @@
 body {
   margin: 0;
   padding: 0;
-
-  /* cancel auto layout margins */
+  min-width: 500px;
   height: 100%;
   font-size: var(--font-size--small);
 }
@@ -131,6 +130,7 @@ body {
 /* style input section + sort section - start */
 .input-sort-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   margin: 10px auto;
 }
@@ -143,6 +143,8 @@ body {
   border: 2px solid #ccc;
   border-radius: 3px;
   transition: 0.5s;
+  height: 30px;
+  width: 200px;
 
   /* for input box, select drop down list */
 }
@@ -217,11 +219,11 @@ body {
 /* style list container section - start */
 
 .list-container {
+  display: grid;
   margin: 10px auto;
   font-family: var(--paragraph-font);
   font-size: 1.5rem;
   min-height: 40vh;
-  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 
@@ -367,3 +369,53 @@ input[type='checkbox'] {
 }
 
 /* style footer start -  end */
+
+/* style media - start */
+
+/* Tablets and under */
+@media (max-width: 768px) {
+  .input-sort-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #sort-type {
+    display: block;
+  }
+
+  #input,
+  #add {
+    margin-top: 10px;
+  }
+
+  #add {
+    margin-left: 0;
+  }
+
+  #input-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    margin-left: 0;
+  }
+
+  .dynamic-intro-container {
+    width: auto;
+    height: auto;
+  }
+
+  .list-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  /* no for this project */
+}
+
+/* style media - end*/
