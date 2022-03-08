@@ -1,8 +1,16 @@
 /**
- * @property {string[]} words - An array of words that the user has provided.
+ * @property {string[]} newWords - An array of words that the user has provided.
+ * @property {string[]} rememberedWords - An array of words that the user has moved from new words list.
  * @property {string} sort - A string indicating the order string should be displayed in the UI.
  */
 export const data = {
-  words: [],
-  sort: 'oldest',
+  newWords: [],
+  rememberedWords: [],
+  sortType: 'oldest',
+  // Below properties are for feature edit
+  // isEditing: false,
+  isEditingNew: false,
+  isEditingRem: false,
+  indexWordNew: null,
+  indexWordRemembered: null,
 };

@@ -125,4 +125,30 @@ describe('sorts the strings in an array in different ways', () => {
       expect(strings).toEqual(['a', 'b', 'c']);
     });
   });
+  describe('perform case-insensitive alphabetical order sorting ', () => {
+    it('empty array', () => {
+      expect(sortStrings([], 'a')).toEqual([]);
+    });
+    it('uppercase and lowercase', () => {
+      const expected = ['abc', 'ABC', 'bcd', 'BCD'];
+      expect(sortStrings(['abc', 'bcd', 'ABC', 'BCD'], 'a')).toEqual(expected);
+    });
+    it('mixed', () => {
+      const expected = ['Bdc', 'bDC', 'Def', 'deF'];
+      expect(sortStrings(['Bdc', 'Def', 'bDC', 'deF'], 'a')).toEqual(expected);
+    });
+  });
+  describe('perform case-insensitive reverse-alphabetical order sorting', () => {
+    it('empty array', () => {
+      expect(sortStrings([], 'z')).toEqual([]);
+    });
+    it('uppercase and lowercase', () => {
+      const expected = ['BCD', 'bcd', 'ABC', 'abc'];
+      expect(sortStrings(['abc', 'bcd', 'ABC', 'BCD'], 'z')).toEqual(expected);
+    });
+    it('mixed', () => {
+      const expected = ['deF', 'Def', 'bDC', 'Bdc'];
+      expect(sortStrings(['Bdc', 'Def', 'bDC', 'deF'], 'z')).toEqual(expected);
+    });
+  });
 });

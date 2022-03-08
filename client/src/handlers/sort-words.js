@@ -8,25 +8,17 @@ import { renderList } from '../components/render-list.js';
  *
  * @param {Event} event - The event triggered by changing the input.
  */
-export const sortWords = (event) => {
+
+export const sortWordsHandler = (event) => {
   /* -- entry point for sorting the words -- */
   // debugger;
-
   /* -- gather user input from DOM -- */
-  const howToSort = event.target.value;
+  // change the .sortType property in data.
+  data.sortType = event.target.value;
 
-  /* -- use the input and data to create a new sorted list --
-    change the .sort property in data
-    sort the words in data.words using the logic function
-    assign the newly sorted list to a variable named `sorted`
-  */
-
-  // ... write some code ...
-
-  /* -- render new words -- */
-  const newList = renderList(sorted);
-
-  const listContainer = document.getElementById('list-container');
-  listContainer.innerHTML = '';
-  listContainer.appendChild(newList);
+  // sort the words in data.words using the logic function
+  data.newWords = sortStrings(data.newWords, data.sortType);
+  data.rememberedWords = sortStrings(data.rememberedWords, data.sortType);
+  // render the ui
+  renderList(data);
 };
